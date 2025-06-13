@@ -28,5 +28,11 @@
         color: var(--color-red)
     }
 }
-
+#files a{
+    color: var(--color-green);
+}
+#files a:hover:not(.link-codepen) ,
+#files a:focus:not(.link-codepen)  {
+    box-shadow: 0.3em 0.3em var(--color-green);
+}
 

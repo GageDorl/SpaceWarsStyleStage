@@ -368,10 +368,6 @@ nav ul li {
 #files a {
   color: var(--color-green);
 }
-#files a:hover:not(.link-codepen),
-#files a:focus:not(.link-codepen) {
-  box-shadow: 0.3em 0.3em var(--color-green);
-}
 
 .features {
   position: relative;
@@ -496,7 +492,8 @@ nav ul li {
     max-width: 30ch;
     margin-bottom: 0;
     border-radius: var(--border-radius);
-    background-color: var(--color-light);
+    border: solid 2px var(--color-blue);
+    background-color: var(--color-background);
     box-shadow: 0 2px 5px rgba(255, 255, 0, 0.15);
   }
   .profile ul {
@@ -647,6 +644,15 @@ nav ul li {
 }
 #contribute a {
   color: var(--color-red);
+}
+
+#files a {
+  color: var(--color-green);
+}
+
+#files a:hover:not(.link-codepen),
+#files a:focus:not(.link-codepen) {
+  box-shadow: 0.3em 0.3em var(--color-green);
 }
 
 /*# sourceMappingURL=style.css.map */
