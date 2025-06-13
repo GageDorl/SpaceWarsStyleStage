@@ -1,6 +1,6 @@
 // stylelint-disable no-descending-specificity
 body {
-  background-color: var(--color-background);
+  background-image: url('../olena-bohovyk-6FdG9OL6JLI-unsplash.jpg');
   color: var(--color-text);
   font-family: var(--font-family);
 }
@@ -13,7 +13,7 @@ main {
   }
 
   h3 {
-    color: var(--color-primary);
+    color: var(--color-red);
   }
 }
 
