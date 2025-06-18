@@ -15,6 +15,10 @@
     }
   }
 
+  p {
+    padding: 0 1rem;
+  }
+
   @supports (background-clip: text) or (-webkit-background-clip: text) {
     p:nth-of-type(2) {
       position: relative;
@@ -37,5 +41,13 @@
 
   .container > a {
     align-self: center;
+  }
+}
+
+@media (min-width: 730px) {
+  #guildines {
+    p {
+      padding: 0 4rem;
+    }
   }
 }

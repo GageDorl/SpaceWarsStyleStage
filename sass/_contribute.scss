@@ -1,3 +1,16 @@
+#contribute {
+  p {
+    padding: 0 1rem;
+  }
+}  
+
+@media (min-width: 730px) {
+  #contribute {
+    p {
+      padding: 0 4rem;
+    }
+  }
+}
 // #about section:nth-child(2) {
 //   position: relative; }
 //   #about section:nth-child(2) p:nth-of-type(2) {

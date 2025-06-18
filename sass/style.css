@@ -350,7 +350,7 @@ nav ul li {
   transform: rotate(-8deg) translateX(-10%);
   background: linear-gradient(to right, var(--color-primary), var(--color-secondary));
 }
-@supports (background-clip: text) or (-webkit-background-clip: text) {
+@supports ((-webkit-background-clip: text) or (background-clip: text)) or (-webkit-background-clip: text) {
   #guidelines h3 {
     -webkit-background-clip: text;
     background-clip: text;
@@ -365,7 +365,7 @@ nav ul li {
 #guidelines p {
   padding: 0 1rem;
 }
-@supports (background-clip: text) or (-webkit-background-clip: text) {
+@supports ((-webkit-background-clip: text) or (background-clip: text)) or (-webkit-background-clip: text) {
   #guidelines p:nth-of-type(2) {
     position: relative;
   }
@@ -485,7 +485,7 @@ nav ul li {
 }
 @media (min-width: 515px) and (max-width: 765px) {
   #styles .features li:nth-last-child(1):nth-child(odd),
-.features.patterned li:nth-last-child(1):nth-child(odd) {
+  .features.patterned li:nth-last-child(1):nth-child(odd) {
     grid-column: span 2;
   }
 }
@@ -692,4 +692,4 @@ nav ul li {
   height: 1em;
   margin-right: 0.25em;
   fill: currentColor;
-}
+}/*# sourceMappingURL=style.css.map */
