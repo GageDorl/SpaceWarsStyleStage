@@ -8,6 +8,7 @@ $light-red: #fe0000;
 $light-blue: #4deeea;
 $green: #39FF14;
 $yellow: #FFFF00;
+$purple: #BF00FF;
 $black: #000;
 $white: #fff;
 
@@ -31,8 +32,12 @@ $colors: map-merge(
     background: $color-background,
     text: $light-blue,
     light: #fff,
-    link: $green,
-    gray: $color-gray
+    link: $yellow,
+    green: $green,
+    gray: $color-gray,
+    blue: $light-blue,
+    purple: $purple,
+    red: $light-red
   )
 );
 
