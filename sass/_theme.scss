@@ -11,6 +11,7 @@ $yellow: #FFFF00;
 $purple: #BF00FF;
 $black: #000;
 $white: #fff;
+$dark-blue: #00008B;
 
 
 $brand-colors: (
@@ -37,7 +38,8 @@ $colors: map-merge(
     gray: $color-gray,
     blue: $light-blue,
     purple: $purple,
-    red: $light-red
+    red: $light-red,
+    dark-blue: $dark-blue
   )
 );
 
