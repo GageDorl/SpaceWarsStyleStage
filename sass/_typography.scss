@@ -33,6 +33,31 @@ p{
   padding: 0.25em 0.5em;
 }
 
+@mixin saber-glow($color){
+  @keyframes saber-glow-#{$color}{
+    0% {
+      box-shadow: 0 0 10px white, 0 0 20px var(--color-#{$color}), 0 0 30px var(--color-#{$color});
+    }
+    50% {
+      box-shadow: 0 0 20px white, 0 0 40px var(--color-#{$color}), 0 0 60px var(--color-#{$color});
+    }
+    100% {
+      box-shadow: 0 0 10px white, 0 0 20px var(--color-#{$color}), 0 0 30px var(--color-#{$color});
+    }
+  }
+}
+
+@mixin animate-saber-glow($color) {
+  animation: saber-glow-#{$color} 3s infinite alternate ease-in-out;
+}
+
+
+@include saber-glow(blue);
+@include saber-glow(green);
+@include saber-glow(red);
+@include saber-glow(purple);
+@include saber-glow(darkblue);
+
 #about>.container{
   display: flex;
 
@@ -47,6 +72,7 @@ p{
     background-color: var(--color-green);
     border-radius: 2em 0 0 2em;
     box-shadow: 0 0 10px #ffffff, 0 0 20px var(--color-green), 0 0 30px var(--color-green);
+    @include animate-saber-glow(green);
     &::before {
       content: "";
       position: absolute;
@@ -58,8 +84,8 @@ p{
       background-color: var(--color-secondary);
       transform: rotate(10deg);
       z-index: -1;
-      box-shadow: 0 0 10px #ffffff, 0 0 20px var(--color-secondary), 0 0 30px var(--color-secondary);
-      animation: twinkle 1s infinite ease-in-out alternate;
+      box-shadow: 0 0 10px #ffffff, 0 0 20px var(--color-red), 0 0 30px var(--color-red);
+      @include animate-saber-glow(red);
     }
   }
 }
@@ -70,7 +96,9 @@ p{
   background-color: var(--color-blue);
   border-radius: 0 2em 2em 0;
   box-shadow: 0 0 10px #ffffff, 0 0 20px var(--color-blue), 0 0 30px var(--color-blue);
+  @include animate-saber-glow(blue);
 }
+
 
 #guidelines>.container {
   p{
@@ -86,6 +114,7 @@ p{
     border-radius: 2em 0 0 2em;
     z-index: 1;
     box-shadow: 0 0 10px #ffffff, 0 0 20px var(--color-purple), 0 0 30px var(--color-purple);
+    @include animate-saber-glow(purple);
     &::before {
       content: "";
       position: absolute;
@@ -94,11 +123,11 @@ p{
       width: 20px;
       height: 800px;
       border-radius: 2rem;
-      background-color: var(--color-dark-blue);
+      background-color: var(--color-darkblue);
       transform: rotate(-15deg);
       z-index: -1;
-      box-shadow: 0 0 10px #ffffff, 0 0 20px var(--color-dark-blue), 0 0 30px var(--color-dark-blue);
-      animation: twinkle 1s infinite ease-in-out alternate;
+      box-shadow: 0 0 10px #ffffff, 0 0 20px var(--color-darkblue), 0 0 30px var(--color-darkblue);
+      @include animate-saber-glow(darkblue);
     }
   }
 }
@@ -109,6 +138,7 @@ p{
   background-color: var(--color-red);
   border-radius: 0 2em 2em 0;
   box-shadow: 0 0 10px #ffffff, 0 0 20px var(--color-red), 0 0 30px var(--color-red);
+  @include animate-saber-glow(red);
 }
 
 h3 {

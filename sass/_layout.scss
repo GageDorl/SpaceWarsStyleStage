@@ -1,10 +1,10 @@
 // stylelint-disable no-descending-specificity
-$star-count: 400;
+$star-count: 600;
 $stars: ();
 
 @for $i from 1 through $star-count {
   $x: random(100) + vw;
-  $y: random(700) + vh;
+  $y: random(1200) + vh;
   $blur: 0px;
   $size: random(2) + px;
   $stars: append($stars, #{$x} #{$y} #{$blur} #{$size} yellow, comma);

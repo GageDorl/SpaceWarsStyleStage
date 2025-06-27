@@ -24,7 +24,12 @@
         padding: 0.7em 0.7em;
         border-radius: .2em;
         background-color: var(--color-blue);
-        color: var(--color-background)
+        color: var(--color-background);
+        transition: transform 300ms ease-in-out;
+        &:hover,
+        &:focus {
+          transform: scale(1.05);
+        }
       }
     }
 
