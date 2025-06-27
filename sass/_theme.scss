@@ -70,7 +70,7 @@ $font-sizes: (
 // stylelint-disable
 :root {
   @each $key, $color in $colors {
-    --color-#{$key}: #{$color};
+    --color-#{""+$key}: #{$color};
   }
 
   --color-anchor: #{$link-color};

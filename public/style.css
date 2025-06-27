@@ -8,7 +8,7 @@
   --color-light: #fff;
   --color-link: #FFFF00;
   --color-green: #39FF14;
-  --color-gray: rgb(23.6, 23.6, 23.6);
+  --color-gray: #181818;
   --color-blue: #4deeea;
   --color-purple: #BF00FF;
   --color-red: #fe0000;
@@ -101,6 +101,12 @@ h2 {
   text-align: center;
 }
 
+p {
+  background-color: rgba(255, 255, 255, 0.4);
+  padding: 0.5em;
+  border-radius: 0.5em;
+}
+
 #main h2 {
   width: 90vw;
   position: relative;
@@ -111,10 +117,29 @@ h2 {
   border-radius: 2rem;
 }
 
+#about > .container {
+  display: flex;
+}
+#about > .container p {
+  z-index: 1;
+}
 #about > .container:nth-of-type(2n-1) h2 {
+  position: relative;
   transform: translateX(10vw);
   text-align: left;
   background-color: var(--color-green);
+}
+#about > .container:nth-of-type(2n-1) h2::before {
+  content: "";
+  position: absolute;
+  top: -200px;
+  left: 85%;
+  width: 20px;
+  height: 800px;
+  border-radius: 2rem;
+  background-color: var(--color-secondary);
+  transform: rotate(10deg);
+  z-index: -1;
 }
 
 #about > .container:nth-of-type(2n) h2, #contribute > .container h2 {
@@ -123,10 +148,25 @@ h2 {
   background-color: var(--color-blue);
 }
 
+#guidelines > .container p {
+  z-index: 1;
+}
 #guidelines > .container h2 {
   background-color: var(--color-purple);
   transform: translateX(10vw);
   text-align: left;
+}
+#guidelines > .container h2::before {
+  content: "";
+  position: absolute;
+  top: -200px;
+  left: -5%;
+  width: 20px;
+  height: 800px;
+  border-radius: 2rem;
+  background-color: var(--color-green);
+  transform: rotate(-15deg);
+  z-index: -1;
 }
 
 #contribute > .container h2 {
@@ -200,9 +240,11 @@ blockquote p strong {
 }
 
 body {
-  background-image: url("../olena-bohovyk-6FdG9OL6JLI-unsplash.jpg");
+  background: var(--color-background);
   color: var(--color-text);
   font-family: var(--font-family);
+  display: flex;
+  flex-direction: column;
 }
 body::before {
   content: "";
@@ -211,7 +253,7 @@ body::before {
   height: 1px;
   background: transparent;
   animation: twinkle 1s infinite ease-in-out alternate;
-  box-shadow: 25vw 191vh 0px 2px yellow, 6vw 336vh 0px 2px yellow, 54vw 10vh 0px 1px yellow, 74vw 467vh 0px 1px yellow, 27vw 323vh 0px 1px yellow, 43vw 140vh 0px 1px yellow, 30vw 108vh 0px 1px yellow, 80vw 587vh 0px 1px yellow, 95vw 700vh 0px 2px yellow, 66vw 291vh 0px 2px yellow, 83vw 231vh 0px 1px yellow, 35vw 96vh 0px 1px yellow, 73vw 521vh 0px 1px yellow, 67vw 71vh 0px 2px yellow, 61vw 429vh 0px 2px yellow, 94vw 582vh 0px 1px yellow, 97vw 630vh 0px 2px yellow, 66vw 351vh 0px 1px yellow, 66vw 293vh 0px 2px yellow, 45vw 145vh 0px 2px yellow, 12vw 125vh 0px 1px yellow, 52vw 10vh 0px 2px yellow, 15vw 129vh 0px 2px yellow, 99vw 645vh 0px 2px yellow, 57vw 391vh 0px 2px yellow, 69vw 29vh 0px 1px yellow, 2vw 276vh 0px 2px yellow, 12vw 102vh 0px 1px yellow, 68vw 9vh 0px 2px yellow, 24vw 446vh 0px 2px yellow, 99vw 221vh 0px 1px yellow, 50vw 281vh 0px 1px yellow, 20vw 650vh 0px 1px yellow, 27vw 417vh 0px 1px yellow, 14vw 540vh 0px 1px yellow, 94vw 698vh 0px 1px yellow, 43vw 474vh 0px 2px yellow, 25vw 599vh 0px 1px yellow, 48vw 80vh 0px 1px yellow, 67vw 58vh 0px 2px yellow, 54vw 221vh 0px 2px yellow, 33vw 684vh 0px 1px yellow, 9vw 597vh 0px 1px yellow, 92vw 666vh 0px 2px yellow, 10vw 166vh 0px 2px yellow, 56vw 400vh 0px 1px yellow, 18vw 95vh 0px 1px yellow, 88vw 105vh 0px 2px yellow, 1vw 360vh 0px 1px yellow, 29vw 303vh 0px 1px yellow, 69vw 17vh 0px 1px yellow, 89vw 208vh 0px 2px yellow, 8vw 335vh 0px 2px yellow, 12vw 334vh 0px 2px yellow, 58vw 441vh 0px 2px yellow, 6vw 629vh 0px 2px yellow, 89vw 91vh 0px 1px yellow, 7vw 384vh 0px 2px yellow, 87vw 331vh 0px 2px yellow, 17vw 58vh 0px 1px yellow, 46vw 466vh 0px 2px yellow, 34vw 393vh 0px 2px yellow, 26vw 41vh 0px 2px yellow, 50vw 567vh 0px 1px yellow, 75vw 675vh 0px 1px yellow, 92vw 612vh 0px 2px yellow, 57vw 303vh 0px 2px yellow, 84vw 242vh 0px 2px yellow, 71vw 633vh 0px 2px yellow, 16vw 582vh 0px 2px yellow, 36vw 266vh 0px 2px yellow, 19vw 167vh 0px 2px yellow, 3vw 97vh 0px 2px yellow, 64vw 454vh 0px 1px yellow, 73vw 456vh 0px 1px yellow, 16vw 447vh 0px 1px yellow, 30vw 191vh 0px 1px yellow, 56vw 151vh 0px 2px yellow, 23vw 562vh 0px 1px yellow, 41vw 130vh 0px 1px yellow, 48vw 90vh 0px 1px yellow, 49vw 346vh 0px 1px yellow, 56vw 487vh 0px 2px yellow, 74vw 124vh 0px 2px yellow, 17vw 59vh 0px 1px yellow, 89vw 231vh 0px 2px yellow, 92vw 286vh 0px 2px yellow, 100vw 589vh 0px 1px yellow, 7vw 669vh 0px 2px yellow, 3vw 441vh 0px 2px yellow, 56vw 565vh 0px 2px yellow, 38vw 135vh 0px 2px yellow, 9vw 66vh 0px 2px yellow, 62vw 527vh 0px 2px yellow, 28vw 464vh 0px 1px yellow, 39vw 678vh 0px 2px yellow, 98vw 529vh 0px 1px yellow, 99vw 588vh 0px 2px yellow, 38vw 322vh 0px 1px yellow, 82vw 244vh 0px 1px yellow, 70vw 378vh 0px 2px yellow, 94vw 402vh 0px 2px yellow, 17vw 50vh 0px 2px yellow, 23vw 215vh 0px 1px yellow, 22vw 570vh 0px 1px yellow, 35vw 438vh 0px 2px yellow, 35vw 556vh 0px 2px yellow, 97vw 26vh 0px 2px yellow, 86vw 561vh 0px 2px yellow, 38vw 498vh 0px 2px yellow, 44vw 2vh 0px 2px yellow, 93vw 443vh 0px 2px yellow, 57vw 572vh 0px 2px yellow, 81vw 153vh 0px 1px yellow, 78vw 525vh 0px 1px yellow, 39vw 103vh 0px 2px yellow, 66vw 212vh 0px 1px yellow, 42vw 647vh 0px 2px yellow, 9vw 73vh 0px 1px yellow, 92vw 700vh 0px 1px yellow, 40vw 335vh 0px 1px yellow, 57vw 605vh 0px 1px yellow, 82vw 692vh 0px 2px yellow, 57vw 686vh 0px 2px yellow, 71vw 19vh 0px 2px yellow, 49vw 253vh 0px 2px yellow, 42vw 133vh 0px 1px yellow, 29vw 361vh 0px 2px yellow, 46vw 89vh 0px 1px yellow, 58vw 496vh 0px 2px yellow, 32vw 548vh 0px 1px yellow, 51vw 449vh 0px 1px yellow, 32vw 139vh 0px 2px yellow, 98vw 475vh 0px 1px yellow, 98vw 87vh 0px 2px yellow, 11vw 28vh 0px 2px yellow, 56vw 154vh 0px 2px yellow, 76vw 491vh 0px 1px yellow, 80vw 639vh 0px 1px yellow, 28vw 60vh 0px 1px yellow, 25vw 650vh 0px 2px yellow, 72vw 314vh 0px 1px yellow, 6vw 463vh 0px 2px yellow, 46vw 148vh 0px 1px yellow, 99vw 149vh 0px 1px yellow, 83vw 368vh 0px 1px yellow, 17vw 323vh 0px 1px yellow, 63vw 55vh 0px 1px yellow, 19vw 459vh 0px 2px yellow, 49vw 646vh 0px 1px yellow, 50vw 284vh 0px 2px yellow, 21vw 141vh 0px 1px yellow, 74vw 286vh 0px 2px yellow, 18vw 334vh 0px 2px yellow, 96vw 96vh 0px 1px yellow, 26vw 485vh 0px 1px yellow, 9vw 143vh 0px 2px yellow, 28vw 593vh 0px 1px yellow, 37vw 379vh 0px 1px yellow, 63vw 445vh 0px 1px yellow, 84vw 486vh 0px 1px yellow, 55vw 531vh 0px 2px yellow, 78vw 45vh 0px 1px yellow, 92vw 426vh 0px 2px yellow, 44vw 533vh 0px 2px yellow, 17vw 598vh 0px 2px yellow, 15vw 509vh 0px 1px yellow, 13vw 413vh 0px 1px yellow, 36vw 124vh 0px 2px yellow, 42vw 456vh 0px 2px yellow, 90vw 683vh 0px 1px yellow, 35vw 606vh 0px 2px yellow, 78vw 556vh 0px 1px yellow, 70vw 565vh 0px 1px yellow, 92vw 532vh 0px 1px yellow, 97vw 604vh 0px 1px yellow, 48vw 617vh 0px 1px yellow, 54vw 404vh 0px 2px yellow, 95vw 195vh 0px 2px yellow, 78vw 418vh 0px 2px yellow, 39vw 213vh 0px 1px yellow, 66vw 291vh 0px 1px yellow, 45vw 354vh 0px 2px yellow, 58vw 453vh 0px 2px yellow, 76vw 110vh 0px 1px yellow, 54vw 85vh 0px 2px yellow, 70vw 119vh 0px 1px yellow, 12vw 662vh 0px 2px yellow, 51vw 546vh 0px 1px yellow, 4vw 630vh 0px 1px yellow, 59vw 370vh 0px 2px yellow, 84vw 19vh 0px 1px yellow, 77vw 275vh 0px 2px yellow, 88vw 297vh 0px 1px yellow, 57vw 549vh 0px 1px yellow, 35vw 426vh 0px 2px yellow, 87vw 657vh 0px 1px yellow, 18vw 500vh 0px 1px yellow, 23vw 577vh 0px 2px yellow, 71vw 688vh 0px 2px yellow, 84vw 315vh 0px 2px yellow, 79vw 656vh 0px 1px yellow, 34vw 169vh 0px 2px yellow, 60vw 470vh 0px 1px yellow, 52vw 177vh 0px 1px yellow, 43vw 209vh 0px 1px yellow, 81vw 195vh 0px 2px yellow, 66vw 301vh 0px 1px yellow, 6vw 650vh 0px 2px yellow, 19vw 624vh 0px 2px yellow, 12vw 157vh 0px 2px yellow, 55vw 394vh 0px 1px yellow, 42vw 542vh 0px 1px yellow, 74vw 97vh 0px 1px yellow, 10vw 614vh 0px 2px yellow, 33vw 384vh 0px 1px yellow, 54vw 510vh 0px 1px yellow, 59vw 234vh 0px 2px yellow, 37vw 625vh 0px 1px yellow, 73vw 13vh 0px 2px yellow, 82vw 200vh 0px 1px yellow, 96vw 697vh 0px 1px yellow, 6vw 227vh 0px 2px yellow, 68vw 232vh 0px 1px yellow, 40vw 443vh 0px 1px yellow, 54vw 14vh 0px 1px yellow, 75vw 638vh 0px 1px yellow, 58vw 345vh 0px 2px yellow, 91vw 576vh 0px 2px yellow, 85vw 630vh 0px 2px yellow, 93vw 621vh 0px 2px yellow, 13vw 492vh 0px 2px yellow, 45vw 14vh 0px 2px yellow, 24vw 297vh 0px 2px yellow, 22vw 488vh 0px 1px yellow, 61vw 462vh 0px 1px yellow, 71vw 52vh 0px 1px yellow, 18vw 144vh 0px 2px yellow, 39vw 428vh 0px 2px yellow, 49vw 553vh 0px 1px yellow, 92vw 20vh 0px 2px yellow, 86vw 73vh 0px 2px yellow, 51vw 365vh 0px 2px yellow, 52vw 361vh 0px 1px yellow, 30vw 675vh 0px 2px yellow, 42vw 484vh 0px 1px yellow, 89vw 641vh 0px 1px yellow, 61vw 322vh 0px 2px yellow, 79vw 142vh 0px 2px yellow, 83vw 380vh 0px 1px yellow, 95vw 291vh 0px 1px yellow, 18vw 152vh 0px 1px yellow, 50vw 27vh 0px 2px yellow, 46vw 210vh 0px 2px yellow, 86vw 229vh 0px 2px yellow, 62vw 406vh 0px 2px yellow, 8vw 305vh 0px 1px yellow, 58vw 281vh 0px 2px yellow, 61vw 700vh 0px 1px yellow, 75vw 107vh 0px 1px yellow, 92vw 481vh 0px 1px yellow, 7vw 386vh 0px 1px yellow, 59vw 259vh 0px 1px yellow, 92vw 466vh 0px 2px yellow, 12vw 39vh 0px 2px yellow, 80vw 374vh 0px 1px yellow, 65vw 396vh 0px 2px yellow, 6vw 22vh 0px 1px yellow, 37vw 484vh 0px 1px yellow, 52vw 420vh 0px 1px yellow, 13vw 591vh 0px 1px yellow, 55vw 674vh 0px 2px yellow, 11vw 478vh 0px 2px yellow, 63vw 670vh 0px 2px yellow, 46vw 194vh 0px 1px yellow, 87vw 382vh 0px 2px yellow, 78vw 665vh 0px 2px yellow, 45vw 610vh 0px 1px yellow, 71vw 686vh 0px 1px yellow, 85vw 670vh 0px 1px yellow, 43vw 649vh 0px 1px yellow, 15vw 678vh 0px 1px yellow, 10vw 535vh 0px 1px yellow, 88vw 345vh 0px 1px yellow, 50vw 114vh 0px 1px yellow, 53vw 391vh 0px 2px yellow, 30vw 216vh 0px 1px yellow, 98vw 43vh 0px 2px yellow, 81vw 190vh 0px 2px yellow, 59vw 355vh 0px 1px yellow, 45vw 284vh 0px 2px yellow, 53vw 63vh 0px 1px yellow, 1vw 456vh 0px 1px yellow, 20vw 590vh 0px 2px yellow, 63vw 414vh 0px 1px yellow, 43vw 157vh 0px 2px yellow, 44vw 584vh 0px 1px yellow, 60vw 413vh 0px 2px yellow, 23vw 68vh 0px 2px yellow, 13vw 417vh 0px 2px yellow, 10vw 460vh 0px 2px yellow, 68vw 446vh 0px 2px yellow, 1vw 118vh 0px 1px yellow, 16vw 320vh 0px 2px yellow, 82vw 111vh 0px 1px yellow, 51vw 604vh 0px 2px yellow, 93vw 508vh 0px 1px yellow, 21vw 572vh 0px 1px yellow, 5vw 479vh 0px 2px yellow, 70vw 411vh 0px 2px yellow, 12vw 245vh 0px 2px yellow, 52vw 689vh 0px 1px yellow, 35vw 340vh 0px 2px yellow, 51vw 371vh 0px 2px yellow, 49vw 70vh 0px 2px yellow, 94vw 249vh 0px 2px yellow, 35vw 281vh 0px 2px yellow, 52vw 465vh 0px 1px yellow, 25vw 332vh 0px 2px yellow, 97vw 269vh 0px 1px yellow, 25vw 151vh 0px 1px yellow, 95vw 89vh 0px 2px yellow, 13vw 674vh 0px 2px yellow, 22vw 573vh 0px 1px yellow, 59vw 282vh 0px 2px yellow, 83vw 670vh 0px 2px yellow, 34vw 655vh 0px 1px yellow, 5vw 353vh 0px 2px yellow, 44vw 163vh 0px 2px yellow, 7vw 217vh 0px 1px yellow, 17vw 638vh 0px 2px yellow, 91vw 109vh 0px 1px yellow, 69vw 53vh 0px 1px yellow, 6vw 42vh 0px 2px yellow, 25vw 696vh 0px 1px yellow, 89vw 221vh 0px 1px yellow, 46vw 636vh 0px 1px yellow, 87vw 20vh 0px 1px yellow, 28vw 135vh 0px 1px yellow, 38vw 216vh 0px 2px yellow, 78vw 678vh 0px 1px yellow, 99vw 166vh 0px 1px yellow, 96vw 593vh 0px 2px yellow, 32vw 37vh 0px 2px yellow, 47vw 343vh 0px 1px yellow, 22vw 459vh 0px 2px yellow, 25vw 383vh 0px 2px yellow, 97vw 70vh 0px 2px yellow, 34vw 165vh 0px 1px yellow, 20vw 203vh 0px 1px yellow, 79vw 600vh 0px 1px yellow, 61vw 367vh 0px 1px yellow, 79vw 184vh 0px 2px yellow, 63vw 513vh 0px 2px yellow, 89vw 558vh 0px 1px yellow, 71vw 344vh 0px 1px yellow, 16vw 390vh 0px 1px yellow, 79vw 350vh 0px 2px yellow, 69vw 550vh 0px 1px yellow, 3vw 401vh 0px 2px yellow, 86vw 227vh 0px 1px yellow, 84vw 4vh 0px 1px yellow, 68vw 230vh 0px 2px yellow, 18vw 60vh 0px 1px yellow, 37vw 478vh 0px 2px yellow, 26vw 113vh 0px 1px yellow, 85vw 66vh 0px 2px yellow, 27vw 422vh 0px 1px yellow, 97vw 594vh 0px 2px yellow, 34vw 19vh 0px 2px yellow, 10vw 580vh 0px 1px yellow, 44vw 218vh 0px 1px yellow, 38vw 323vh 0px 1px yellow, 69vw 570vh 0px 2px yellow, 91vw 390vh 0px 1px yellow, 99vw 117vh 0px 1px yellow, 60vw 616vh 0px 2px yellow, 53vw 237vh 0px 2px yellow, 72vw 399vh 0px 1px yellow, 62vw 37vh 0px 1px yellow, 75vw 624vh 0px 1px yellow, 5vw 188vh 0px 2px yellow, 10vw 544vh 0px 2px yellow, 20vw 320vh 0px 1px yellow, 47vw 264vh 0px 1px yellow, 62vw 123vh 0px 2px yellow, 35vw 356vh 0px 1px yellow, 46vw 481vh 0px 1px yellow, 80vw 543vh 0px 1px yellow, 83vw 438vh 0px 1px yellow, 13vw 52vh 0px 2px yellow, 75vw 321vh 0px 1px yellow, 82vw 466vh 0px 1px yellow, 89vw 507vh 0px 2px yellow, 91vw 76vh 0px 2px yellow, 4vw 86vh 0px 2px yellow, 36vw 288vh 0px 2px yellow, 21vw 622vh 0px 1px yellow, 57vw 186vh 0px 2px yellow, 46vw 377vh 0px 1px yellow;
+  box-shadow: 93vw 664vh 0px 2px yellow, 14vw 539vh 0px 1px yellow, 10vw 379vh 0px 2px yellow, 59vw 352vh 0px 2px yellow, 8vw 200vh 0px 2px yellow, 32vw 399vh 0px 2px yellow, 65vw 85vh 0px 1px yellow, 4vw 498vh 0px 1px yellow, 65vw 572vh 0px 1px yellow, 76vw 13vh 0px 1px yellow, 10vw 95vh 0px 1px yellow, 50vw 44vh 0px 1px yellow, 10vw 115vh 0px 2px yellow, 42vw 349vh 0px 2px yellow, 16vw 690vh 0px 1px yellow, 37vw 364vh 0px 1px yellow, 67vw 552vh 0px 2px yellow, 1vw 97vh 0px 2px yellow, 6vw 412vh 0px 2px yellow, 81vw 418vh 0px 1px yellow, 65vw 341vh 0px 1px yellow, 60vw 294vh 0px 1px yellow, 26vw 428vh 0px 1px yellow, 60vw 545vh 0px 1px yellow, 12vw 634vh 0px 1px yellow, 9vw 474vh 0px 1px yellow, 20vw 286vh 0px 2px yellow, 49vw 212vh 0px 1px yellow, 42vw 584vh 0px 1px yellow, 5vw 413vh 0px 2px yellow, 56vw 537vh 0px 1px yellow, 41vw 498vh 0px 2px yellow, 31vw 585vh 0px 1px yellow, 11vw 286vh 0px 2px yellow, 44vw 471vh 0px 1px yellow, 66vw 615vh 0px 1px yellow, 2vw 157vh 0px 1px yellow, 95vw 675vh 0px 1px yellow, 47vw 656vh 0px 1px yellow, 13vw 137vh 0px 1px yellow, 76vw 226vh 0px 1px yellow, 36vw 363vh 0px 2px yellow, 48vw 276vh 0px 2px yellow, 50vw 659vh 0px 1px yellow, 22vw 372vh 0px 2px yellow, 84vw 306vh 0px 1px yellow, 35vw 445vh 0px 2px yellow, 22vw 229vh 0px 1px yellow, 36vw 43vh 0px 2px yellow, 1vw 545vh 0px 1px yellow, 92vw 383vh 0px 1px yellow, 70vw 285vh 0px 1px yellow, 35vw 563vh 0px 1px yellow, 12vw 591vh 0px 1px yellow, 99vw 643vh 0px 2px yellow, 37vw 623vh 0px 2px yellow, 32vw 442vh 0px 2px yellow, 25vw 197vh 0px 2px yellow, 46vw 387vh 0px 2px yellow, 27vw 73vh 0px 2px yellow, 14vw 129vh 0px 1px yellow, 93vw 214vh 0px 2px yellow, 11vw 405vh 0px 2px yellow, 99vw 547vh 0px 1px yellow, 54vw 521vh 0px 1px yellow, 3vw 599vh 0px 2px yellow, 3vw 17vh 0px 1px yellow, 58vw 646vh 0px 2px yellow, 9vw 101vh 0px 2px yellow, 45vw 269vh 0px 1px yellow, 16vw 493vh 0px 1px yellow, 56vw 361vh 0px 1px yellow, 81vw 39vh 0px 1px yellow, 74vw 652vh 0px 1px yellow, 60vw 356vh 0px 2px yellow, 70vw 64vh 0px 2px yellow, 50vw 389vh 0px 2px yellow, 46vw 428vh 0px 1px yellow, 49vw 474vh 0px 1px yellow, 95vw 425vh 0px 2px yellow, 30vw 523vh 0px 1px yellow, 23vw 512vh 0px 2px yellow, 88vw 507vh 0px 1px yellow, 100vw 3vh 0px 1px yellow, 90vw 559vh 0px 2px yellow, 7vw 301vh 0px 1px yellow, 34vw 633vh 0px 1px yellow, 19vw 530vh 0px 2px yellow, 45vw 399vh 0px 2px yellow, 13vw 419vh 0px 1px yellow, 79vw 198vh 0px 1px yellow, 63vw 227vh 0px 2px yellow, 60vw 330vh 0px 1px yellow, 22vw 235vh 0px 1px yellow, 8vw 357vh 0px 1px yellow, 49vw 652vh 0px 2px yellow, 81vw 258vh 0px 2px yellow, 41vw 539vh 0px 1px yellow, 100vw 404vh 0px 1px yellow, 73vw 402vh 0px 2px yellow, 20vw 597vh 0px 2px yellow, 55vw 289vh 0px 2px yellow, 52vw 544vh 0px 1px yellow, 31vw 691vh 0px 1px yellow, 63vw 256vh 0px 2px yellow, 43vw 595vh 0px 2px yellow, 97vw 632vh 0px 1px yellow, 84vw 410vh 0px 2px yellow, 12vw 127vh 0px 2px yellow, 29vw 18vh 0px 1px yellow, 67vw 698vh 0px 1px yellow, 86vw 234vh 0px 2px yellow, 21vw 339vh 0px 1px yellow, 85vw 27vh 0px 1px yellow, 17vw 390vh 0px 2px yellow, 9vw 233vh 0px 1px yellow, 75vw 609vh 0px 1px yellow, 56vw 575vh 0px 2px yellow, 71vw 267vh 0px 2px yellow, 68vw 664vh 0px 1px yellow, 72vw 43vh 0px 2px yellow, 85vw 670vh 0px 2px yellow, 66vw 468vh 0px 2px yellow, 10vw 37vh 0px 1px yellow, 1vw 177vh 0px 1px yellow, 56vw 509vh 0px 1px yellow, 79vw 181vh 0px 1px yellow, 6vw 597vh 0px 2px yellow, 88vw 323vh 0px 1px yellow, 26vw 182vh 0px 2px yellow, 87vw 266vh 0px 2px yellow, 43vw 683vh 0px 2px yellow, 85vw 122vh 0px 2px yellow, 42vw 15vh 0px 2px yellow, 76vw 538vh 0px 1px yellow, 92vw 354vh 0px 1px yellow, 57vw 231vh 0px 1px yellow, 13vw 516vh 0px 1px yellow, 35vw 522vh 0px 2px yellow, 53vw 182vh 0px 2px yellow, 97vw 697vh 0px 1px yellow, 9vw 677vh 0px 1px yellow, 78vw 250vh 0px 1px yellow, 76vw 582vh 0px 2px yellow, 55vw 599vh 0px 1px yellow, 96vw 643vh 0px 2px yellow, 77vw 699vh 0px 2px yellow, 99vw 698vh 0px 2px yellow, 68vw 14vh 0px 1px yellow, 59vw 457vh 0px 1px yellow, 52vw 230vh 0px 1px yellow, 73vw 299vh 0px 2px yellow, 63vw 644vh 0px 2px yellow, 46vw 518vh 0px 2px yellow, 37vw 542vh 0px 2px yellow, 68vw 229vh 0px 2px yellow, 47vw 353vh 0px 1px yellow, 60vw 319vh 0px 1px yellow, 68vw 65vh 0px 1px yellow, 49vw 695vh 0px 2px yellow, 21vw 69vh 0px 1px yellow, 54vw 79vh 0px 1px yellow, 19vw 610vh 0px 1px yellow, 31vw 621vh 0px 2px yellow, 78vw 492vh 0px 2px yellow, 29vw 201vh 0px 1px yellow, 99vw 577vh 0px 1px yellow, 79vw 222vh 0px 1px yellow, 12vw 404vh 0px 2px yellow, 33vw 394vh 0px 1px yellow, 22vw 609vh 0px 1px yellow, 69vw 444vh 0px 2px yellow, 100vw 602vh 0px 2px yellow, 4vw 397vh 0px 1px yellow, 29vw 183vh 0px 1px yellow, 22vw 452vh 0px 1px yellow, 12vw 157vh 0px 1px yellow, 32vw 395vh 0px 2px yellow, 17vw 603vh 0px 1px yellow, 3vw 616vh 0px 2px yellow, 24vw 414vh 0px 1px yellow, 31vw 298vh 0px 1px yellow, 2vw 75vh 0px 1px yellow, 46vw 584vh 0px 1px yellow, 37vw 307vh 0px 1px yellow, 62vw 620vh 0px 1px yellow, 45vw 672vh 0px 1px yellow, 60vw 263vh 0px 2px yellow, 1vw 325vh 0px 2px yellow, 86vw 264vh 0px 1px yellow, 56vw 571vh 0px 1px yellow, 55vw 356vh 0px 1px yellow, 19vw 417vh 0px 1px yellow, 31vw 680vh 0px 1px yellow, 35vw 216vh 0px 2px yellow, 33vw 478vh 0px 1px yellow, 67vw 328vh 0px 2px yellow, 48vw 428vh 0px 2px yellow, 77vw 616vh 0px 2px yellow, 86vw 104vh 0px 1px yellow, 95vw 214vh 0px 1px yellow, 95vw 335vh 0px 1px yellow, 53vw 407vh 0px 1px yellow, 12vw 619vh 0px 1px yellow, 69vw 10vh 0px 2px yellow, 33vw 597vh 0px 1px yellow, 47vw 494vh 0px 1px yellow, 4vw 270vh 0px 1px yellow, 58vw 631vh 0px 1px yellow, 20vw 75vh 0px 1px yellow, 96vw 567vh 0px 2px yellow, 57vw 644vh 0px 1px yellow, 22vw 541vh 0px 2px yellow, 52vw 668vh 0px 2px yellow, 93vw 48vh 0px 2px yellow, 92vw 518vh 0px 2px yellow, 51vw 447vh 0px 1px yellow, 48vw 109vh 0px 2px yellow, 96vw 559vh 0px 2px yellow, 74vw 653vh 0px 2px yellow, 92vw 499vh 0px 2px yellow, 56vw 509vh 0px 1px yellow, 8vw 607vh 0px 1px yellow, 13vw 575vh 0px 2px yellow, 60vw 449vh 0px 1px yellow, 7vw 591vh 0px 2px yellow, 57vw 546vh 0px 1px yellow, 50vw 68vh 0px 1px yellow, 65vw 273vh 0px 1px yellow, 26vw 383vh 0px 1px yellow, 94vw 609vh 0px 1px yellow, 92vw 465vh 0px 2px yellow, 82vw 256vh 0px 2px yellow, 75vw 173vh 0px 1px yellow, 97vw 359vh 0px 2px yellow, 41vw 650vh 0px 2px yellow, 70vw 41vh 0px 2px yellow, 73vw 467vh 0px 2px yellow, 24vw 11vh 0px 2px yellow, 68vw 558vh 0px 2px yellow, 64vw 169vh 0px 1px yellow, 79vw 563vh 0px 1px yellow, 73vw 79vh 0px 2px yellow, 3vw 190vh 0px 2px yellow, 42vw 45vh 0px 1px yellow, 86vw 100vh 0px 1px yellow, 37vw 480vh 0px 1px yellow, 55vw 121vh 0px 1px yellow, 89vw 77vh 0px 1px yellow, 46vw 443vh 0px 2px yellow, 90vw 332vh 0px 2px yellow, 76vw 536vh 0px 1px yellow, 87vw 578vh 0px 1px yellow, 13vw 377vh 0px 1px yellow, 97vw 271vh 0px 2px yellow, 66vw 123vh 0px 1px yellow, 81vw 409vh 0px 2px yellow, 45vw 175vh 0px 1px yellow, 55vw 276vh 0px 1px yellow, 75vw 614vh 0px 2px yellow, 87vw 693vh 0px 2px yellow, 58vw 515vh 0px 2px yellow, 90vw 106vh 0px 1px yellow, 25vw 351vh 0px 1px yellow, 82vw 493vh 0px 1px yellow, 71vw 208vh 0px 2px yellow, 55vw 485vh 0px 1px yellow, 37vw 123vh 0px 2px yellow, 20vw 406vh 0px 2px yellow, 48vw 621vh 0px 1px yellow, 65vw 576vh 0px 1px yellow, 68vw 90vh 0px 2px yellow, 9vw 465vh 0px 2px yellow, 14vw 516vh 0px 1px yellow, 57vw 569vh 0px 1px yellow, 66vw 381vh 0px 2px yellow, 35vw 475vh 0px 2px yellow, 85vw 253vh 0px 2px yellow, 47vw 182vh 0px 2px yellow, 5vw 597vh 0px 2px yellow, 21vw 596vh 0px 1px yellow, 90vw 653vh 0px 2px yellow, 58vw 410vh 0px 2px yellow, 98vw 386vh 0px 1px yellow, 46vw 238vh 0px 2px yellow, 68vw 285vh 0px 1px yellow, 62vw 565vh 0px 1px yellow, 95vw 57vh 0px 2px yellow, 97vw 589vh 0px 2px yellow, 43vw 643vh 0px 2px yellow, 57vw 437vh 0px 1px yellow, 22vw 699vh 0px 1px yellow, 5vw 433vh 0px 2px yellow, 19vw 597vh 0px 1px yellow, 97vw 22vh 0px 2px yellow, 49vw 295vh 0px 2px yellow, 62vw 607vh 0px 1px yellow, 1vw 387vh 0px 1px yellow, 21vw 596vh 0px 2px yellow, 50vw 61vh 0px 2px yellow, 45vw 2vh 0px 2px yellow, 48vw 605vh 0px 1px yellow, 5vw 305vh 0px 1px yellow, 27vw 96vh 0px 2px yellow, 44vw 560vh 0px 2px yellow, 59vw 51vh 0px 2px yellow, 89vw 611vh 0px 2px yellow, 92vw 104vh 0px 1px yellow, 100vw 430vh 0px 1px yellow, 21vw 461vh 0px 2px yellow, 91vw 350vh 0px 2px yellow, 26vw 84vh 0px 2px yellow, 45vw 179vh 0px 1px yellow, 12vw 661vh 0px 1px yellow, 20vw 276vh 0px 1px yellow, 77vw 236vh 0px 1px yellow, 40vw 692vh 0px 2px yellow, 54vw 603vh 0px 2px yellow, 62vw 560vh 0px 1px yellow, 93vw 342vh 0px 1px yellow, 17vw 257vh 0px 2px yellow, 56vw 679vh 0px 1px yellow, 21vw 2vh 0px 1px yellow, 72vw 295vh 0px 1px yellow, 99vw 472vh 0px 1px yellow, 70vw 130vh 0px 2px yellow, 4vw 565vh 0px 2px yellow, 52vw 471vh 0px 1px yellow, 17vw 696vh 0px 2px yellow, 69vw 131vh 0px 1px yellow, 74vw 517vh 0px 2px yellow, 44vw 458vh 0px 2px yellow, 18vw 242vh 0px 2px yellow, 40vw 532vh 0px 2px yellow, 81vw 575vh 0px 1px yellow, 2vw 304vh 0px 1px yellow, 82vw 220vh 0px 2px yellow, 94vw 216vh 0px 2px yellow, 44vw 295vh 0px 2px yellow, 21vw 566vh 0px 2px yellow, 31vw 427vh 0px 1px yellow, 9vw 217vh 0px 1px yellow, 36vw 304vh 0px 1px yellow, 82vw 679vh 0px 2px yellow, 16vw 681vh 0px 2px yellow, 65vw 64vh 0px 1px yellow, 56vw 111vh 0px 1px yellow, 19vw 628vh 0px 2px yellow, 66vw 527vh 0px 2px yellow, 35vw 686vh 0px 1px yellow, 7vw 690vh 0px 1px yellow, 76vw 501vh 0px 1px yellow, 54vw 597vh 0px 2px yellow, 57vw 169vh 0px 2px yellow, 65vw 102vh 0px 1px yellow, 56vw 268vh 0px 1px yellow, 87vw 407vh 0px 1px yellow, 22vw 467vh 0px 2px yellow, 71vw 45vh 0px 1px yellow, 84vw 176vh 0px 1px yellow, 74vw 605vh 0px 1px yellow, 66vw 510vh 0px 1px yellow, 46vw 659vh 0px 2px yellow, 92vw 284vh 0px 1px yellow, 41vw 644vh 0px 1px yellow, 11vw 129vh 0px 2px yellow, 24vw 87vh 0px 1px yellow, 56vw 696vh 0px 1px yellow, 37vw 171vh 0px 1px yellow, 31vw 606vh 0px 1px yellow, 42vw 668vh 0px 2px yellow, 30vw 563vh 0px 1px yellow, 56vw 281vh 0px 2px yellow, 18vw 55vh 0px 1px yellow, 23vw 679vh 0px 1px yellow, 83vw 337vh 0px 1px yellow, 94vw 52vh 0px 1px yellow, 22vw 106vh 0px 2px yellow, 45vw 253vh 0px 2px yellow, 93vw 211vh 0px 1px yellow, 17vw 233vh 0px 2px yellow, 73vw 544vh 0px 2px yellow, 16vw 595vh 0px 2px yellow, 19vw 148vh 0px 2px yellow, 9vw 323vh 0px 2px yellow, 52vw 415vh 0px 1px yellow, 27vw 174vh 0px 1px yellow, 33vw 369vh 0px 2px yellow, 68vw 261vh 0px 1px yellow, 36vw 686vh 0px 1px yellow, 17vw 364vh 0px 2px yellow, 56vw 196vh 0px 1px yellow, 6vw 477vh 0px 2px yellow, 68vw 673vh 0px 1px yellow, 4vw 189vh 0px 1px yellow, 55vw 97vh 0px 1px yellow, 100vw 512vh 0px 2px yellow, 11vw 249vh 0px 1px yellow, 76vw 333vh 0px 2px yellow, 78vw 647vh 0px 1px yellow;
 }
 
 @keyframes twinkle {
@@ -278,7 +320,7 @@ header h2 {
 }
 
 nav {
-  position: absolute;
+  order: -1;
   top: 0;
   width: 100%;
   display: inline-flex;
@@ -445,7 +487,7 @@ nav ul li {
 }
 @media (min-width: 515px) and (max-width: 765px) {
   #styles .features li:nth-last-child(1):nth-child(odd),
-  .features.patterned li:nth-last-child(1):nth-child(odd) {
+.features.patterned li:nth-last-child(1):nth-child(odd) {
     grid-column: span 2;
   }
 }
@@ -671,5 +713,3 @@ nav ul li {
 #files a:focus:not(.link-codepen) {
   box-shadow: 0.3em 0.3em var(--color-green);
 }
-
-/*# sourceMappingURL=style.css.map */

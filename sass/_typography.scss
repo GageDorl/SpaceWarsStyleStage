@@ -18,6 +18,12 @@ h2 {
   text-align: center;
 }
 
+p{
+  background-color: rgba(255, 255, 255, 0.4);
+  padding: 0.5em;
+  border-radius: 0.5em;
+}
+
 #main h2 {
   width:90vw;
   position:relative;
@@ -28,10 +34,31 @@ h2 {
   border-radius: 2rem;
 }
 
-#about>.container:nth-of-type(2n-1) h2{
-  transform: translateX(10vw);
-  text-align: left;
-  background-color: var(--color-green);
+#about>.container{
+  display: flex;
+
+  p{
+    z-index: 1;
+  }
+
+  &:nth-of-type(2n-1) h2{
+    position: relative;
+    transform: translateX(10vw);
+    text-align: left;
+    background-color: var(--color-green);
+    &::before {
+      content: "";
+      position: absolute;
+      top: -200px;
+      left: 85%;
+      width: 20px;
+      height: 800px;
+      border-radius: 2rem;
+      background-color: var(--color-secondary);
+      transform: rotate(10deg);
+      z-index: -1;
+    }
+  }
 }
 
 #about>.container:nth-of-type(2n) h2, #contribute>.container h2{
@@ -40,10 +67,27 @@ h2 {
   background-color: var(--color-blue);
 }
 
-#guidelines>.container h2 {
-  background-color: var(--color-purple);
-  transform: translateX(10vw);
-  text-align: left;
+#guidelines>.container {
+  p{
+    z-index: 1;
+  }
+  h2 {
+    background-color: var(--color-purple);
+    transform: translateX(10vw);
+    text-align: left;
+    &::before {
+      content: "";
+      position: absolute;
+      top: -200px;
+      left: -5%;
+      width: 20px;
+      height: 800px;
+      border-radius: 2rem;
+      background-color: var(--color-green);
+      transform: rotate(-15deg);
+      z-index: -1;
+    }
+  }
 }
 
 #contribute>.container h2 {

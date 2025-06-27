@@ -11,9 +11,11 @@ $stars: ();
 }
 
 body {
-  background-image: url('../olena-bohovyk-6FdG9OL6JLI-unsplash.jpg');
+  background: var(--color-background);
   color: var(--color-text);
   font-family: var(--font-family);
+  display: flex;
+  flex-direction: column;
   &::before {
     content: '';
     position: absolute;
