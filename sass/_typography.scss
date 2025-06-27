@@ -31,7 +31,6 @@ p{
   align-self: center;
   color: var(--color-background);
   padding: 0.25em 0.5em;
-  border-radius: 2rem;
 }
 
 #about>.container{
@@ -46,6 +45,8 @@ p{
     transform: translateX(10vw);
     text-align: left;
     background-color: var(--color-green);
+    border-radius: 2em 0 0 2em;
+    box-shadow: 0 0 10px #ffffff, 0 0 20px var(--color-green), 0 0 30px var(--color-green);
     &::before {
       content: "";
       position: absolute;
@@ -57,6 +58,7 @@ p{
       background-color: var(--color-secondary);
       transform: rotate(10deg);
       z-index: -1;
+      box-shadow: 0 0 10px #ffffff, 0 0 20px var(--color-secondary), 0 0 30px var(--color-secondary);
     }
   }
 }
@@ -65,6 +67,8 @@ p{
   transform:translateX(-10vw);
   text-align: right;
   background-color: var(--color-blue);
+  border-radius: 0 2em 2em 0;
+  box-shadow: 0 0 10px #ffffff, 0 0 20px var(--color-blue), 0 0 30px var(--color-blue);
 }
 
 #guidelines>.container {
@@ -75,6 +79,9 @@ p{
     background-color: var(--color-purple);
     transform: translateX(10vw);
     text-align: left;
+    border-radius: 2em 0 0 2em;
+    z-index: 1;
+    box-shadow: 0 0 10px #ffffff, 0 0 20px var(--color-purple), 0 0 30px var(--color-purple);
     &::before {
       content: "";
       position: absolute;
@@ -94,6 +101,8 @@ p{
   transform:translateX(-10vw);
   text-align: right;
   background-color: var(--color-red);
+  border-radius: 0 2em 2em 0;
+  box-shadow: 0 0 10px #ffffff, 0 0 20px var(--color-red), 0 0 30px var(--color-red);
 }
 
 h3 {
