@@ -1,20 +1,19 @@
-@charset "UTF-8";
-@import url("https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Audiowide&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500&display=swap");
 :root {
   --color-primary: #FFFF00;
   --color-primary-alt: #fff;
-  --color-secondary: #fe0000;
+  --color-secondary: #FF1A1A;
   --color-background: #000;
   --color-text: #4deeea;
   --color-light: #fff;
-  --color-link: #39FF14;
+  --color-link: #FFFF00;
+  --color-green: #39FF14;
   --color-gray: #181818;
-  --color-anchor: #39FF14;
+  --color-blue: #4deeea;
+  --color-purple: #C23DFF;
+  --color-red: #FF1A1A;
+  --color-darkblue: #00008B;
+  --color-anchor: #FFFF00;
   --font-family: "audiowide", sans-serif;
   --font-weight-strong: 500;
   --font-size-h1: 6rem;
@@ -76,7 +75,7 @@ select {
 
 /* Remove all animations and transitions for people that prefer not to see them */
 @media (prefers-reduced-motion: reduce) {
-  * {
+  *, *::before, *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
@@ -103,6 +102,12 @@ h2 {
   text-align: center;
 }
 
+p {
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 0.5em;
+  border-radius: 0.5em;
+}
+
 #main h2 {
   width: 90vw;
   position: relative;
@@ -110,18 +115,145 @@ h2 {
   align-self: center;
   color: var(--color-background);
   padding: 0.25em 0.5em;
-  border-radius: 2rem;
 }
 
-#about > .container:nth-of-type(2n-1) h2, #guidelines > .container h2 {
+@keyframes saber-glow-blue {
+  0% {
+    box-shadow: 0 0 10px white, 0 0 20px var(--color-blue), 0 0 30px var(--color-blue);
+  }
+  50% {
+    box-shadow: 0 0 20px white, 0 0 40px var(--color-blue), 0 0 60px var(--color-blue);
+  }
+  100% {
+    box-shadow: 0 0 10px white, 0 0 20px var(--color-blue), 0 0 30px var(--color-blue);
+  }
+}
+@keyframes saber-glow-green {
+  0% {
+    box-shadow: 0 0 10px white, 0 0 20px var(--color-green), 0 0 30px var(--color-green);
+  }
+  50% {
+    box-shadow: 0 0 20px white, 0 0 40px var(--color-green), 0 0 60px var(--color-green);
+  }
+  100% {
+    box-shadow: 0 0 10px white, 0 0 20px var(--color-green), 0 0 30px var(--color-green);
+  }
+}
+@keyframes saber-glow-red {
+  0% {
+    box-shadow: 0 0 10px white, 0 0 20px var(--color-red), 0 0 30px var(--color-red);
+  }
+  50% {
+    box-shadow: 0 0 20px white, 0 0 40px var(--color-red), 0 0 60px var(--color-red);
+  }
+  100% {
+    box-shadow: 0 0 10px white, 0 0 20px var(--color-red), 0 0 30px var(--color-red);
+  }
+}
+@keyframes saber-glow-purple {
+  0% {
+    box-shadow: 0 0 10px white, 0 0 20px var(--color-purple), 0 0 30px var(--color-purple);
+  }
+  50% {
+    box-shadow: 0 0 20px white, 0 0 40px var(--color-purple), 0 0 60px var(--color-purple);
+  }
+  100% {
+    box-shadow: 0 0 10px white, 0 0 20px var(--color-purple), 0 0 30px var(--color-purple);
+  }
+}
+@keyframes saber-glow-darkblue {
+  0% {
+    box-shadow: 0 0 10px white, 0 0 20px var(--color-darkblue), 0 0 30px var(--color-darkblue);
+  }
+  50% {
+    box-shadow: 0 0 20px white, 0 0 40px var(--color-darkblue), 0 0 60px var(--color-darkblue);
+  }
+  100% {
+    box-shadow: 0 0 10px white, 0 0 20px var(--color-darkblue), 0 0 30px var(--color-darkblue);
+  }
+}
+#about > .container {
+  display: flex;
+}
+#about > .container p {
+  z-index: 1;
+}
+#about > .container:nth-of-type(2n-1) h2 {
+  position: relative;
   transform: translateX(10vw);
   text-align: left;
-  background-color: var(--color-link);
+  background-color: var(--color-green);
+  border-radius: 2em 0 0 2em;
+  box-shadow: 0 0 10px #ffffff, 0 0 20px var(--color-green), 0 0 30px var(--color-green);
+  animation: saber-glow-green infinite alternate ease-in-out;
+  animation-duration: 2s;
+}
+#about > .container:nth-of-type(2n-1) h2::before {
+  content: "";
+  position: absolute;
+  top: -200px;
+  left: 85%;
+  width: 20px;
+  height: 800px;
+  border-radius: 2rem;
+  background-color: var(--color-secondary);
+  transform: rotate(10deg);
+  z-index: -1;
+  box-shadow: 0 0 10px #ffffff, 0 0 20px var(--color-red), 0 0 30px var(--color-red);
+  animation: saber-glow-red infinite alternate ease-in-out;
+  animation-duration: 2s;
 }
 
 #about > .container:nth-of-type(2n) h2, #contribute > .container h2 {
   transform: translateX(-10vw);
   text-align: right;
+  background-color: var(--color-blue);
+  border-radius: 0 2em 2em 0;
+  box-shadow: 0 0 10px #ffffff, 0 0 20px var(--color-blue), 0 0 30px var(--color-blue);
+  animation: saber-glow-blue infinite alternate ease-in-out;
+  animation-duration: 2s;
+}
+
+#guidelines > .container p {
+  z-index: 1;
+}
+#guidelines > .container h3 {
+  z-index: 1;
+}
+#guidelines > .container h2 {
+  background-color: var(--color-purple);
+  transform: translateX(10vw);
+  text-align: left;
+  border-radius: 2em 0 0 2em;
+  z-index: 1;
+  box-shadow: 0 0 10px #ffffff, 0 0 20px var(--color-purple), 0 0 30px var(--color-purple);
+  animation: saber-glow-purple infinite alternate ease-in-out;
+  animation-duration: 2s;
+}
+#guidelines > .container h2::before {
+  content: "";
+  position: absolute;
+  top: -200px;
+  left: -5%;
+  width: 20px;
+  height: 800px;
+  border-radius: 2rem;
+  background-color: var(--color-darkblue);
+  transform: rotate(-15deg);
+  z-index: -1;
+  box-shadow: 0 0 10px #ffffff, 0 0 20px var(--color-darkblue), 0 0 30px var(--color-darkblue);
+  animation: saber-glow-darkblue infinite alternate ease-in-out;
+  animation-duration: 2s;
+}
+
+#contribute > .container h2 {
+  transform: translateX(-10vw);
+  text-align: right;
+  background-color: var(--color-red);
+  border-radius: 0 2em 2em 0;
+  box-shadow: 0 0 10px #ffffff, 0 0 20px var(--color-red), 0 0 30px var(--color-red);
+  animation: saber-glow-red infinite alternate ease-in-out;
+  animation-duration: 2s;
 }
 
 h3 {
@@ -145,11 +277,9 @@ article .container > ul:not(.features) > li + li,
 article .container > ol > li + li {
   margin-top: 1rem;
 }
-
 article .container * + h2 {
   margin-top: 4rem;
 }
-
 article .container * + h3 {
   margin-top: 2rem;
 }
@@ -171,18 +301,15 @@ blockquote {
   margin: 3rem 0;
   color: var(--color-primary);
 }
-
 blockquote > * {
   grid-area: blockquote;
 }
-
 blockquote p {
   position: relative;
   font-size: var(--font-size-h4);
   margin-bottom: 0;
   padding: 0.5em;
 }
-
 blockquote p strong {
   font-size: 1.15em;
 }
@@ -194,21 +321,38 @@ blockquote p strong {
 }
 
 body {
-  background-color: var(--color-background);
+  background: var(--color-background);
   color: var(--color-text);
   font-family: var(--font-family);
+  display: flex;
+  flex-direction: column;
+}
+body::before {
+  content: "";
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  background: transparent;
+  animation: twinkle 1s infinite ease-in-out alternate;
+  box-shadow: 8vw 808vh 0px 2px yellow, 52vw 1067vh 0px 1px yellow, 39vw 302vh 0px 2px yellow, 78vw 1148vh 0px 2px yellow, 63vw 430vh 0px 1px yellow, 32vw 7vh 0px 1px yellow, 40vw 137vh 0px 2px yellow, 98vw 793vh 0px 1px yellow, 88vw 1026vh 0px 2px yellow, 62vw 894vh 0px 2px yellow, 37vw 872vh 0px 1px yellow, 45vw 987vh 0px 2px yellow, 42vw 115vh 0px 2px yellow, 1vw 570vh 0px 1px yellow, 31vw 105vh 0px 2px yellow, 26vw 878vh 0px 2px yellow, 33vw 11vh 0px 1px yellow, 87vw 497vh 0px 2px yellow, 2vw 44vh 0px 1px yellow, 9vw 637vh 0px 1px yellow, 66vw 340vh 0px 2px yellow, 87vw 928vh 0px 2px yellow, 15vw 951vh 0px 2px yellow, 54vw 285vh 0px 2px yellow, 1vw 727vh 0px 2px yellow, 94vw 773vh 0px 2px yellow, 41vw 245vh 0px 1px yellow, 30vw 665vh 0px 1px yellow, 9vw 905vh 0px 1px yellow, 54vw 413vh 0px 2px yellow, 96vw 51vh 0px 1px yellow, 89vw 688vh 0px 1px yellow, 7vw 1016vh 0px 1px yellow, 33vw 1119vh 0px 1px yellow, 73vw 451vh 0px 1px yellow, 9vw 1050vh 0px 1px yellow, 27vw 326vh 0px 1px yellow, 38vw 1182vh 0px 2px yellow, 10vw 633vh 0px 2px yellow, 31vw 515vh 0px 2px yellow, 42vw 856vh 0px 1px yellow, 11vw 609vh 0px 1px yellow, 53vw 468vh 0px 1px yellow, 73vw 763vh 0px 2px yellow, 53vw 118vh 0px 2px yellow, 35vw 617vh 0px 2px yellow, 24vw 330vh 0px 2px yellow, 29vw 910vh 0px 2px yellow, 62vw 1093vh 0px 1px yellow, 52vw 647vh 0px 2px yellow, 25vw 107vh 0px 2px yellow, 41vw 46vh 0px 1px yellow, 56vw 1193vh 0px 1px yellow, 77vw 901vh 0px 2px yellow, 35vw 984vh 0px 1px yellow, 54vw 741vh 0px 1px yellow, 7vw 262vh 0px 1px yellow, 47vw 566vh 0px 2px yellow, 67vw 984vh 0px 1px yellow, 56vw 534vh 0px 1px yellow, 77vw 1063vh 0px 2px yellow, 34vw 175vh 0px 1px yellow, 97vw 705vh 0px 1px yellow, 100vw 36vh 0px 2px yellow, 47vw 954vh 0px 2px yellow, 96vw 215vh 0px 2px yellow, 87vw 483vh 0px 1px yellow, 73vw 486vh 0px 2px yellow, 49vw 1037vh 0px 1px yellow, 14vw 1174vh 0px 1px yellow, 96vw 69vh 0px 1px yellow, 47vw 1065vh 0px 2px yellow, 22vw 1127vh 0px 2px yellow, 39vw 404vh 0px 2px yellow, 97vw 47vh 0px 1px yellow, 48vw 994vh 0px 1px yellow, 68vw 135vh 0px 1px yellow, 15vw 171vh 0px 1px yellow, 20vw 796vh 0px 1px yellow, 82vw 560vh 0px 1px yellow, 90vw 961vh 0px 1px yellow, 8vw 895vh 0px 1px yellow, 64vw 679vh 0px 2px yellow, 35vw 586vh 0px 2px yellow, 31vw 972vh 0px 1px yellow, 64vw 1107vh 0px 2px yellow, 16vw 621vh 0px 1px yellow, 53vw 792vh 0px 2px yellow, 70vw 960vh 0px 1px yellow, 66vw 763vh 0px 1px yellow, 28vw 959vh 0px 1px yellow, 62vw 685vh 0px 1px yellow, 27vw 17vh 0px 1px yellow, 45vw 82vh 0px 1px yellow, 25vw 63vh 0px 2px yellow, 41vw 104vh 0px 2px yellow, 71vw 435vh 0px 2px yellow, 35vw 1031vh 0px 1px yellow, 77vw 517vh 0px 2px yellow, 87vw 61vh 0px 1px yellow, 70vw 624vh 0px 1px yellow, 31vw 843vh 0px 1px yellow, 72vw 425vh 0px 1px yellow, 78vw 533vh 0px 1px yellow, 75vw 432vh 0px 2px yellow, 31vw 193vh 0px 2px yellow, 8vw 760vh 0px 2px yellow, 26vw 371vh 0px 1px yellow, 52vw 1064vh 0px 2px yellow, 35vw 619vh 0px 2px yellow, 21vw 1123vh 0px 2px yellow, 59vw 264vh 0px 1px yellow, 100vw 1149vh 0px 1px yellow, 6vw 467vh 0px 2px yellow, 93vw 536vh 0px 2px yellow, 30vw 1187vh 0px 2px yellow, 92vw 218vh 0px 1px yellow, 75vw 1016vh 0px 1px yellow, 3vw 754vh 0px 2px yellow, 66vw 997vh 0px 2px yellow, 65vw 915vh 0px 2px yellow, 24vw 1169vh 0px 2px yellow, 39vw 134vh 0px 2px yellow, 58vw 278vh 0px 1px yellow, 2vw 1168vh 0px 2px yellow, 51vw 221vh 0px 1px yellow, 94vw 1169vh 0px 1px yellow, 17vw 230vh 0px 1px yellow, 92vw 221vh 0px 2px yellow, 81vw 1089vh 0px 2px yellow, 33vw 403vh 0px 2px yellow, 70vw 940vh 0px 2px yellow, 35vw 942vh 0px 1px yellow, 13vw 142vh 0px 1px yellow, 12vw 265vh 0px 1px yellow, 23vw 886vh 0px 2px yellow, 27vw 34vh 0px 2px yellow, 44vw 1165vh 0px 1px yellow, 99vw 588vh 0px 1px yellow, 31vw 609vh 0px 2px yellow, 20vw 871vh 0px 1px yellow, 91vw 581vh 0px 2px yellow, 79vw 299vh 0px 2px yellow, 26vw 174vh 0px 1px yellow, 1vw 1008vh 0px 2px yellow, 91vw 164vh 0px 1px yellow, 5vw 839vh 0px 2px yellow, 23vw 912vh 0px 1px yellow, 95vw 893vh 0px 2px yellow, 16vw 188vh 0px 2px yellow, 81vw 491vh 0px 1px yellow, 1vw 1145vh 0px 1px yellow, 73vw 1013vh 0px 1px yellow, 48vw 440vh 0px 2px yellow, 15vw 373vh 0px 2px yellow, 37vw 817vh 0px 2px yellow, 19vw 606vh 0px 1px yellow, 68vw 993vh 0px 1px yellow, 90vw 880vh 0px 1px yellow, 75vw 920vh 0px 2px yellow, 65vw 158vh 0px 1px yellow, 54vw 412vh 0px 2px yellow, 51vw 789vh 0px 1px yellow, 92vw 975vh 0px 1px yellow, 38vw 1064vh 0px 2px yellow, 84vw 180vh 0px 1px yellow, 45vw 515vh 0px 2px yellow, 50vw 402vh 0px 1px yellow, 16vw 992vh 0px 1px yellow, 21vw 438vh 0px 1px yellow, 9vw 484vh 0px 1px yellow, 22vw 199vh 0px 2px yellow, 16vw 850vh 0px 1px yellow, 93vw 421vh 0px 2px yellow, 24vw 510vh 0px 2px yellow, 12vw 935vh 0px 1px yellow, 4vw 832vh 0px 2px yellow, 94vw 533vh 0px 1px yellow, 65vw 456vh 0px 2px yellow, 92vw 1127vh 0px 2px yellow, 81vw 192vh 0px 2px yellow, 38vw 538vh 0px 1px yellow, 4vw 46vh 0px 1px yellow, 55vw 56vh 0px 2px yellow, 79vw 183vh 0px 2px yellow, 37vw 94vh 0px 2px yellow, 12vw 1054vh 0px 2px yellow, 41vw 109vh 0px 2px yellow, 36vw 96vh 0px 2px yellow, 27vw 989vh 0px 1px yellow, 78vw 151vh 0px 1px yellow, 29vw 931vh 0px 1px yellow, 31vw 556vh 0px 2px yellow, 19vw 675vh 0px 1px yellow, 73vw 387vh 0px 1px yellow, 56vw 334vh 0px 1px yellow, 34vw 318vh 0px 1px yellow, 16vw 1049vh 0px 1px yellow, 77vw 1066vh 0px 2px yellow, 16vw 367vh 0px 2px yellow, 95vw 496vh 0px 1px yellow, 51vw 887vh 0px 1px yellow, 85vw 153vh 0px 2px yellow, 42vw 146vh 0px 1px yellow, 15vw 615vh 0px 1px yellow, 59vw 341vh 0px 2px yellow, 20vw 657vh 0px 1px yellow, 24vw 1105vh 0px 1px yellow, 2vw 357vh 0px 2px yellow, 42vw 720vh 0px 1px yellow, 91vw 101vh 0px 1px yellow, 96vw 1022vh 0px 2px yellow, 80vw 537vh 0px 2px yellow, 31vw 367vh 0px 1px yellow, 94vw 417vh 0px 1px yellow, 5vw 481vh 0px 2px yellow, 89vw 879vh 0px 2px yellow, 46vw 1169vh 0px 2px yellow, 87vw 1037vh 0px 1px yellow, 93vw 646vh 0px 1px yellow, 92vw 933vh 0px 2px yellow, 71vw 538vh 0px 2px yellow, 36vw 688vh 0px 1px yellow, 5vw 421vh 0px 2px yellow, 88vw 731vh 0px 1px yellow, 48vw 821vh 0px 2px yellow, 38vw 515vh 0px 2px yellow, 59vw 59vh 0px 2px yellow, 67vw 2vh 0px 2px yellow, 72vw 136vh 0px 1px yellow, 58vw 503vh 0px 2px yellow, 49vw 365vh 0px 2px yellow, 89vw 764vh 0px 2px yellow, 100vw 400vh 0px 1px yellow, 76vw 1049vh 0px 2px yellow, 38vw 316vh 0px 1px yellow, 55vw 673vh 0px 2px yellow, 9vw 812vh 0px 1px yellow, 26vw 407vh 0px 1px yellow, 86vw 908vh 0px 1px yellow, 80vw 410vh 0px 2px yellow, 33vw 958vh 0px 2px yellow, 29vw 913vh 0px 2px yellow, 84vw 1171vh 0px 2px yellow, 88vw 24vh 0px 1px yellow, 99vw 427vh 0px 1px yellow, 47vw 413vh 0px 2px yellow, 34vw 962vh 0px 2px yellow, 36vw 841vh 0px 2px yellow, 38vw 395vh 0px 1px yellow, 86vw 531vh 0px 2px yellow, 74vw 169vh 0px 1px yellow, 19vw 960vh 0px 2px yellow, 26vw 565vh 0px 1px yellow, 91vw 200vh 0px 1px yellow, 80vw 539vh 0px 2px yellow, 2vw 512vh 0px 2px yellow, 41vw 1175vh 0px 2px yellow, 93vw 1175vh 0px 2px yellow, 89vw 474vh 0px 2px yellow, 99vw 320vh 0px 1px yellow, 31vw 1098vh 0px 2px yellow, 57vw 557vh 0px 2px yellow, 77vw 250vh 0px 1px yellow, 74vw 884vh 0px 1px yellow, 14vw 714vh 0px 2px yellow, 60vw 438vh 0px 1px yellow, 65vw 833vh 0px 1px yellow, 54vw 642vh 0px 2px yellow, 66vw 129vh 0px 2px yellow, 43vw 903vh 0px 2px yellow, 12vw 404vh 0px 2px yellow, 75vw 795vh 0px 1px yellow, 74vw 496vh 0px 2px yellow, 31vw 427vh 0px 2px yellow, 37vw 266vh 0px 2px yellow, 55vw 261vh 0px 1px yellow, 43vw 369vh 0px 1px yellow, 30vw 358vh 0px 1px yellow, 8vw 65vh 0px 2px yellow, 66vw 4vh 0px 2px yellow, 30vw 973vh 0px 2px yellow, 99vw 1016vh 0px 1px yellow, 16vw 624vh 0px 2px yellow, 92vw 128vh 0px 2px yellow, 22vw 573vh 0px 1px yellow, 92vw 348vh 0px 2px yellow, 18vw 532vh 0px 1px yellow, 39vw 1151vh 0px 1px yellow, 34vw 963vh 0px 1px yellow, 2vw 374vh 0px 2px yellow, 58vw 286vh 0px 2px yellow, 39vw 1043vh 0px 2px yellow, 50vw 524vh 0px 1px yellow, 87vw 413vh 0px 2px yellow, 34vw 827vh 0px 2px yellow, 87vw 462vh 0px 1px yellow, 60vw 680vh 0px 1px yellow, 98vw 742vh 0px 1px yellow, 30vw 503vh 0px 1px yellow, 79vw 249vh 0px 1px yellow, 37vw 994vh 0px 1px yellow, 48vw 930vh 0px 2px yellow, 39vw 809vh 0px 1px yellow, 39vw 591vh 0px 2px yellow, 76vw 431vh 0px 2px yellow, 89vw 558vh 0px 2px yellow, 58vw 672vh 0px 2px yellow, 31vw 330vh 0px 2px yellow, 92vw 1vh 0px 1px yellow, 90vw 727vh 0px 1px yellow, 66vw 937vh 0px 1px yellow, 43vw 315vh 0px 1px yellow, 61vw 298vh 0px 2px yellow, 21vw 567vh 0px 1px yellow, 48vw 269vh 0px 2px yellow, 75vw 96vh 0px 1px yellow, 5vw 567vh 0px 1px yellow, 49vw 1082vh 0px 2px yellow, 83vw 865vh 0px 2px yellow, 93vw 492vh 0px 1px yellow, 48vw 601vh 0px 2px yellow, 97vw 669vh 0px 1px yellow, 51vw 17vh 0px 1px yellow, 1vw 326vh 0px 1px yellow, 38vw 668vh 0px 1px yellow, 3vw 1175vh 0px 1px yellow, 87vw 548vh 0px 1px yellow, 66vw 831vh 0px 1px yellow, 60vw 80vh 0px 2px yellow, 73vw 589vh 0px 2px yellow, 22vw 1076vh 0px 1px yellow, 10vw 796vh 0px 2px yellow, 91vw 992vh 0px 1px yellow, 29vw 988vh 0px 1px yellow, 44vw 934vh 0px 2px yellow, 34vw 93vh 0px 2px yellow, 99vw 635vh 0px 1px yellow, 71vw 1131vh 0px 2px yellow, 21vw 279vh 0px 2px yellow, 45vw 1106vh 0px 2px yellow, 6vw 525vh 0px 1px yellow, 56vw 728vh 0px 1px yellow, 80vw 427vh 0px 2px yellow, 36vw 808vh 0px 1px yellow, 85vw 715vh 0px 1px yellow, 6vw 265vh 0px 1px yellow, 2vw 739vh 0px 2px yellow, 97vw 251vh 0px 1px yellow, 50vw 1141vh 0px 2px yellow, 92vw 505vh 0px 2px yellow, 79vw 1162vh 0px 2px yellow, 99vw 191vh 0px 1px yellow, 28vw 438vh 0px 2px yellow, 95vw 541vh 0px 2px yellow, 13vw 546vh 0px 1px yellow, 65vw 937vh 0px 1px yellow, 6vw 1017vh 0px 1px yellow, 55vw 114vh 0px 1px yellow, 29vw 787vh 0px 1px yellow, 83vw 966vh 0px 1px yellow, 55vw 752vh 0px 2px yellow, 45vw 131vh 0px 2px yellow, 91vw 693vh 0px 2px yellow, 54vw 591vh 0px 1px yellow, 14vw 1088vh 0px 2px yellow, 33vw 909vh 0px 1px yellow, 93vw 623vh 0px 2px yellow, 52vw 118vh 0px 2px yellow, 72vw 1021vh 0px 1px yellow, 2vw 736vh 0px 1px yellow, 15vw 886vh 0px 2px yellow, 12vw 286vh 0px 1px yellow, 14vw 755vh 0px 1px yellow, 28vw 59vh 0px 1px yellow, 22vw 786vh 0px 1px yellow, 57vw 921vh 0px 2px yellow, 4vw 642vh 0px 2px yellow, 87vw 358vh 0px 2px yellow, 58vw 516vh 0px 1px yellow, 7vw 1090vh 0px 1px yellow, 3vw 154vh 0px 1px yellow, 85vw 548vh 0px 2px yellow, 100vw 996vh 0px 1px yellow, 10vw 645vh 0px 2px yellow, 99vw 707vh 0px 2px yellow, 97vw 523vh 0px 2px yellow, 79vw 843vh 0px 2px yellow, 65vw 878vh 0px 1px yellow, 5vw 444vh 0px 1px yellow, 76vw 1102vh 0px 2px yellow, 98vw 494vh 0px 2px yellow, 57vw 763vh 0px 2px yellow, 51vw 478vh 0px 1px yellow, 83vw 200vh 0px 2px yellow, 32vw 1012vh 0px 1px yellow, 14vw 840vh 0px 1px yellow, 3vw 688vh 0px 2px yellow, 5vw 1001vh 0px 2px yellow, 80vw 1189vh 0px 1px yellow, 70vw 221vh 0px 2px yellow, 6vw 82vh 0px 2px yellow, 61vw 857vh 0px 1px yellow, 80vw 633vh 0px 1px yellow, 29vw 678vh 0px 2px yellow, 34vw 174vh 0px 2px yellow, 62vw 948vh 0px 2px yellow, 70vw 899vh 0px 1px yellow, 53vw 442vh 0px 2px yellow, 57vw 339vh 0px 2px yellow, 69vw 146vh 0px 2px yellow, 94vw 701vh 0px 2px yellow, 13vw 1vh 0px 1px yellow, 5vw 614vh 0px 1px yellow, 26vw 651vh 0px 2px yellow, 60vw 428vh 0px 2px yellow, 42vw 782vh 0px 2px yellow, 55vw 425vh 0px 1px yellow, 81vw 666vh 0px 1px yellow, 53vw 892vh 0px 1px yellow, 84vw 506vh 0px 2px yellow, 33vw 167vh 0px 2px yellow, 39vw 1014vh 0px 2px yellow, 50vw 60vh 0px 2px yellow, 79vw 668vh 0px 1px yellow, 15vw 642vh 0px 1px yellow, 92vw 619vh 0px 1px yellow, 46vw 567vh 0px 1px yellow, 73vw 865vh 0px 1px yellow, 85vw 999vh 0px 1px yellow, 24vw 595vh 0px 1px yellow, 10vw 1048vh 0px 1px yellow, 16vw 616vh 0px 2px yellow, 44vw 689vh 0px 1px yellow, 18vw 414vh 0px 2px yellow, 10vw 31vh 0px 2px yellow, 2vw 93vh 0px 1px yellow, 100vw 240vh 0px 1px yellow, 78vw 25vh 0px 2px yellow, 12vw 231vh 0px 2px yellow, 27vw 642vh 0px 1px yellow, 25vw 665vh 0px 2px yellow, 65vw 1072vh 0px 1px yellow, 63vw 466vh 0px 1px yellow, 68vw 1088vh 0px 1px yellow, 85vw 61vh 0px 2px yellow, 100vw 406vh 0px 2px yellow, 30vw 921vh 0px 2px yellow, 8vw 455vh 0px 1px yellow, 99vw 1049vh 0px 2px yellow, 78vw 542vh 0px 2px yellow, 60vw 584vh 0px 1px yellow, 21vw 497vh 0px 2px yellow, 56vw 1135vh 0px 1px yellow, 70vw 715vh 0px 1px yellow, 5vw 290vh 0px 1px yellow, 4vw 918vh 0px 1px yellow, 55vw 1166vh 0px 1px yellow, 76vw 757vh 0px 2px yellow, 63vw 940vh 0px 2px yellow, 22vw 951vh 0px 1px yellow, 97vw 735vh 0px 2px yellow, 43vw 1190vh 0px 2px yellow, 88vw 299vh 0px 2px yellow, 29vw 919vh 0px 2px yellow, 9vw 12vh 0px 1px yellow, 45vw 1134vh 0px 1px yellow, 63vw 347vh 0px 2px yellow, 62vw 364vh 0px 1px yellow, 33vw 155vh 0px 1px yellow, 79vw 577vh 0px 1px yellow, 81vw 381vh 0px 2px yellow, 36vw 978vh 0px 1px yellow, 18vw 885vh 0px 2px yellow, 83vw 1123vh 0px 2px yellow, 10vw 1117vh 0px 2px yellow, 68vw 1120vh 0px 1px yellow, 65vw 357vh 0px 2px yellow, 92vw 376vh 0px 2px yellow, 49vw 749vh 0px 2px yellow, 52vw 874vh 0px 2px yellow, 19vw 111vh 0px 1px yellow, 47vw 1138vh 0px 2px yellow, 89vw 645vh 0px 2px yellow, 18vw 447vh 0px 2px yellow, 91vw 733vh 0px 2px yellow, 71vw 813vh 0px 1px yellow, 16vw 987vh 0px 2px yellow, 42vw 374vh 0px 1px yellow, 20vw 1146vh 0px 2px yellow, 69vw 722vh 0px 1px yellow, 40vw 384vh 0px 1px yellow, 82vw 975vh 0px 2px yellow, 38vw 502vh 0px 2px yellow, 37vw 242vh 0px 2px yellow, 53vw 277vh 0px 2px yellow, 48vw 766vh 0px 2px yellow, 45vw 769vh 0px 2px yellow, 99vw 946vh 0px 1px yellow, 32vw 402vh 0px 2px yellow, 76vw 1107vh 0px 2px yellow, 32vw 499vh 0px 1px yellow, 39vw 300vh 0px 1px yellow, 10vw 702vh 0px 2px yellow, 32vw 70vh 0px 2px yellow, 85vw 346vh 0px 2px yellow, 22vw 1044vh 0px 1px yellow, 66vw 1158vh 0px 1px yellow, 41vw 947vh 0px 2px yellow, 25vw 1012vh 0px 1px yellow, 81vw 798vh 0px 1px yellow, 53vw 542vh 0px 2px yellow, 37vw 1050vh 0px 2px yellow, 11vw 47vh 0px 2px yellow, 46vw 1166vh 0px 1px yellow, 66vw 521vh 0px 1px yellow, 76vw 461vh 0px 2px yellow, 84vw 445vh 0px 1px yellow, 27vw 991vh 0px 1px yellow, 41vw 424vh 0px 2px yellow, 22vw 861vh 0px 2px yellow, 15vw 1076vh 0px 1px yellow, 95vw 1019vh 0px 2px yellow, 80vw 686vh 0px 1px yellow, 95vw 1070vh 0px 2px yellow, 42vw 1162vh 0px 1px yellow, 10vw 10vh 0px 1px yellow, 43vw 144vh 0px 2px yellow, 33vw 157vh 0px 1px yellow, 68vw 305vh 0px 2px yellow, 10vw 191vh 0px 2px yellow, 49vw 781vh 0px 1px yellow, 33vw 853vh 0px 2px yellow, 92vw 128vh 0px 2px yellow, 2vw 459vh 0px 2px yellow, 37vw 766vh 0px 1px yellow, 86vw 1130vh 0px 2px yellow, 5vw 45vh 0px 1px yellow, 45vw 930vh 0px 2px yellow, 85vw 1197vh 0px 2px yellow, 92vw 821vh 0px 2px yellow, 33vw 383vh 0px 1px yellow, 70vw 804vh 0px 1px yellow, 78vw 516vh 0px 2px yellow, 73vw 642vh 0px 2px yellow, 28vw 94vh 0px 2px yellow, 17vw 495vh 0px 1px yellow, 63vw 210vh 0px 2px yellow, 4vw 637vh 0px 2px yellow, 88vw 991vh 0px 2px yellow, 68vw 471vh 0px 2px yellow, 36vw 595vh 0px 2px yellow, 62vw 956vh 0px 1px yellow, 15vw 1094vh 0px 1px yellow, 78vw 603vh 0px 1px yellow, 30vw 907vh 0px 2px yellow, 89vw 85vh 0px 1px yellow, 33vw 372vh 0px 2px yellow, 82vw 296vh 0px 1px yellow, 72vw 431vh 0px 2px yellow, 36vw 328vh 0px 2px yellow, 94vw 913vh 0px 2px yellow, 13vw 961vh 0px 1px yellow, 2vw 300vh 0px 2px yellow, 24vw 660vh 0px 1px yellow, 32vw 243vh 0px 2px yellow, 32vw 942vh 0px 2px yellow, 86vw 1004vh 0px 2px yellow, 16vw 208vh 0px 1px yellow, 25vw 849vh 0px 1px yellow, 37vw 423vh 0px 1px yellow, 9vw 801vh 0px 2px yellow, 64vw 731vh 0px 2px yellow, 26vw 1043vh 0px 2px yellow, 61vw 232vh 0px 2px yellow, 91vw 400vh 0px 2px yellow, 39vw 40vh 0px 1px yellow, 21vw 1158vh 0px 2px yellow, 97vw 425vh 0px 1px yellow, 34vw 993vh 0px 1px yellow, 78vw 941vh 0px 1px yellow, 96vw 909vh 0px 1px yellow, 32vw 505vh 0px 1px yellow, 42vw 696vh 0px 1px yellow, 61vw 595vh 0px 1px yellow, 37vw 983vh 0px 2px yellow, 88vw 302vh 0px 2px yellow, 13vw 1011vh 0px 2px yellow, 77vw 797vh 0px 2px yellow, 21vw 339vh 0px 1px yellow, 8vw 277vh 0px 2px yellow, 49vw 806vh 0px 1px yellow, 35vw 957vh 0px 1px yellow, 67vw 58vh 0px 2px yellow, 1vw 445vh 0px 1px yellow, 48vw 880vh 0px 2px yellow, 58vw 181vh 0px 1px yellow, 59vw 802vh 0px 2px yellow, 71vw 156vh 0px 1px yellow, 21vw 174vh 0px 1px yellow;
 }
 
+@keyframes twinkle {
+  0% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 main {
   padding-bottom: 5vh;
 }
-
 main:focus {
   outline: none;
 }
-
 main h3 {
-  color: var(--color-primary);
+  color: var(--color-red);
 }
 
 article section {
@@ -252,10 +396,9 @@ header {
   min-height: 40vh;
   place-items: center;
   padding: 15vh 2rem 0;
-  color: var(--color-primary);
+  color: var(--color-light);
   text-align: center;
 }
-
 header h1 {
   position: relative;
   color: var(--color-primary);
@@ -265,7 +408,6 @@ header h1 {
   -webkit-text-fill-color: transparent;
   animation: shimmer 3s infinite;
 }
-
 header h2 {
   max-width: 30ch;
 }
@@ -290,13 +432,12 @@ header h2 {
   }
 }
 nav {
-  position: absolute;
+  order: -1;
   top: 0;
   width: 100%;
   display: inline-flex;
-  background-color: var(--color-light);
+  background-color: var(--color-background);
 }
-
 nav ul {
   display: flex;
   flex: 0 0 100%;
@@ -306,40 +447,39 @@ nav ul {
   padding: 0;
   list-style: none;
 }
-
 nav ul a {
   display: inline-grid;
   padding: 0.5rem;
-  color: var(--color-secondary);
+  color: var(--color-link);
   font-size: 1.25rem;
   text-decoration: none;
 }
-
 nav ul a:hover::before, nav ul a:focus::before {
   opacity: 1;
 }
-
 nav ul li {
   margin: 0.25rem;
+  transition: background-color 0.3s ease-in-out;
+  border-radius: 0.25rem;
+}
+nav ul li:hover, nav ul li:focus {
+  background-color: rgba(255, 255, 255, 0.4);
 }
 
 #about p {
   padding: 0 1rem;
 }
-
 #about section:nth-child(2) {
   position: relative;
 }
-
 #about section:nth-child(2) p:nth-of-type(2) {
   align-self: center;
   margin-top: 2rem;
-  color: var(--color-secondary);
+  color: var(--color-blue);
   font-size: 1.5em;
   font-weight: var(--font-weight-strong);
   text-align: center;
 }
-
 #about section:nth-child(2) ul {
   display: flex;
   flex-wrap: wrap;
@@ -348,13 +488,16 @@ nav ul li {
   padding: 0;
   list-style: none;
 }
-
 #about section:nth-child(2) ul li {
   margin: 0.25em;
   padding: 0.7em 0.7em;
   border-radius: 0.2em;
-  background-color: var(--color-light);
-  color: var(--color-secondary);
+  background-color: var(--color-blue);
+  color: var(--color-background);
+  transition: transform 300ms ease-in-out;
+}
+#about section:nth-child(2) ul li:hover, #about section:nth-child(2) ul li:focus {
+  transform: scale(1.05);
 }
 
 @media (min-width: 730px) {
@@ -365,10 +508,9 @@ nav ul li {
 #guidelines h3 {
   display: inline-block;
   transform: rotate(-8deg) translateX(-10%);
-  background: linear-gradient(to right, var(--color-primary), var(--color-secondary));
+  background: linear-gradient(to right, var(--color-light), var(--color-purple));
 }
-
-@supports (-webkit-background-clip: text) or (background-clip: text) or (-webkit-background-clip: text) {
+@supports (background-clip: text) or (-webkit-background-clip: text) {
   #guidelines h3 {
     -webkit-background-clip: text;
     background-clip: text;
@@ -383,24 +525,9 @@ nav ul li {
 #guidelines p {
   padding: 0 1rem;
 }
-
-@supports (-webkit-background-clip: text) or (background-clip: text) or (-webkit-background-clip: text) {
+@supports (background-clip: text) or (-webkit-background-clip: text) {
   #guidelines p:nth-of-type(2) {
     position: relative;
-  }
-
-  #guidelines p:nth-of-type(2)::before {
-    position: absolute;
-    top: 0;
-    left: 0;
-    transform: rotate(4deg) translate(4.75rem, -3.5rem);
-    transform-origin: left center;
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: var(--color-primary-alt);
-    font-size: 0.9em;
-    font-weight: normal;
-    content: "← Whoa, text gradients!";
   }
 }
 #guidelines .container > a {
@@ -412,41 +539,30 @@ nav ul li {
     padding: 0 4rem;
   }
 }
-#contribute p {
-  padding: 0 1rem;
-}
-
-@media (min-width: 730px) {
-  #contribute p {
-    padding: 0 4rem;
-  }
-}
 #files {
   display: grid;
   place-content: center;
   margin: 5vh auto;
   text-align: center;
 }
-
 #files h3 {
   height: 0;
   opacity: 0;
 }
-
 #files .container {
   display: inline-block;
   padding: 5vmin;
-  outline: 4px dashed var(--color-secondary);
-  background-color: var(--color-background);
+  outline: 4px dashed var(--color-green);
   text-align: center;
 }
-
 #files .container a:not(:last-child) {
   margin: 0.5rem;
 }
-
 #files .container a:not(:last-child):not(.link-codepen) {
   font-size: clamp(1.5rem, 4vw, 2rem);
+}
+#files a {
+  color: var(--color-green);
 }
 
 .features {
@@ -458,7 +574,6 @@ nav ul li {
     * @link http://www.heropatterns.com/
     */
 }
-
 .features li {
   display: grid;
   position: relative;
@@ -468,24 +583,20 @@ nav ul li {
   color: var(--color-light);
   text-align: center;
 }
-
 .features li > span {
   display: grid;
   place-content: center;
   padding: 0.5em;
   grid-gap: 0.5rem;
-  border: 1px solid var(--color-light);
-  background-color: var(--color-secondary);
+  background-color: var(--color-purple);
   line-height: 1.1;
 }
-
 .features li > span a {
-  color: inherit;
+  color: var(--color-background);
   font-size: 1.3rem;
   font-weight: var(--font-weight-strong);
   text-decoration: none;
 }
-
 .features li > span a::before {
   position: absolute;
   top: 0;
@@ -494,8 +605,8 @@ nav ul li {
   height: 100%;
   content: "";
 }
-
 .features li > span span:nth-child(2) {
+  color: var(--color-background);
   position: relative;
 }
 
@@ -503,47 +614,19 @@ nav ul li {
   margin: 5vh 0 20vh;
   text-align: center;
 }
-
 #styles h2 {
-  color: var(--color-primary);
+  color: var(--color-light);
 }
 
 #styles .features li,
 .features.patterned li {
-  background-color: var(--color-secondary);
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='72' viewBox='0 0 36 72'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23fff' fill-opacity='0.4'%3E%3Cpath d='M2 6h12L8 18 2 6zm18 36h12l-6 12-6-12z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  border: solid 2px var(--color-purple);
 }
-
 @media (min-width: 515px) and (max-width: 765px) {
   #styles .features li:nth-last-child(1):nth-child(odd),
 .features.patterned li:nth-last-child(1):nth-child(odd) {
     grid-column: span 2;
   }
-}
-#styles .features li:nth-child(2),
-.features.patterned li:nth-child(2) {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='88' height='24' viewBox='0 0 88 24'%3E%3Cg fill-rule='evenodd'%3E%3Cg id='autumn' fill='%23fff' fill-opacity='0.4'%3E%3Cpath d='M10 0l30 15 2 1V2.18A10 10 0 0 0 41.76 0H39.7a8 8 0 0 1 .3 2.18v10.58L14.47 0H10zm31.76 24a10 10 0 0 0-5.29-6.76L4 1 2 0v13.82a10 10 0 0 0 5.53 8.94L10 24h4.47l-6.05-3.02A8 8 0 0 1 4 13.82V3.24l31.58 15.78A8 8 0 0 1 39.7 24h2.06zM78 24l2.47-1.24A10 10 0 0 0 86 13.82V0l-2 1-32.47 16.24A10 10 0 0 0 46.24 24h2.06a8 8 0 0 1 4.12-4.98L84 3.24v10.58a8 8 0 0 1-4.42 7.16L73.53 24H78zm0-24L48 15l-2 1V2.18A10 10 0 0 1 46.24 0h2.06a8 8 0 0 0-.3 2.18v10.58L73.53 0H78z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-}
-
-#styles .features li:nth-child(3),
-.features.patterned li:nth-child(3) {
-  background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23fff' fill-opacity='0.4'%3E%3Cpath d='M50 50c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10s-10-4.477-10-10 4.477-10 10-10zM10 10c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10S0 25.523 0 20s4.477-10 10-10zm10 8c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm40 40c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-}
-
-#styles .features::after,
-.features.patterned::after {
-  position: absolute;
-  bottom: -4.5em;
-  width: 10ch;
-  padding-top: 3em;
-  transform: rotate(-15deg);
-  transform-origin: bottom right;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 199.1 111.3'%3E%3Cpath fill='%23fff' d='M118 77a77 77 0 00-2-18c-2-4-3-9-3-13a29 29 0 011-12 19 19 0 017-9c4-3 8-4 13-3a14 14 0 018 7 31 31 0 012 5 75 75 0 005 10 47 47 0 002 5 17 17 0 003 3c4 4 8 4 13 0a15 15 0 005-8 37 37 0 001-7l1-11a18 18 0 014-11 2 2 0 000-3l-3-3-2-3a2 2 0 011-2 11 11 0 012-1l19-3c4 0 5 1 3 5l-7 16c-1 3-2 3-5 1l-4-5a1 1 0 00-1 0 9 9 0 00-3 5 23 23 0 00-1 6l-1 11a26 26 0 01-1 7 18 18 0 01-8 10c-5 3-9 3-13 0a20 20 0 01-6-6 68 68 0 01-6-13l-2-4a18 18 0 00-2-4 10 10 0 00-14-2 15 15 0 00-4 4 19 19 0 00-3 9 32 32 0 000 11l2 6a78 78 0 012 27 32 32 0 01-4 15 24 24 0 01-11 9 33 33 0 01-19 3 16 16 0 01-13-9 29 29 0 01-3-11 70 70 0 012-18l2-14a33 33 0 000-14c-1-4-4-7-8-7-7-1-14 1-19 6a34 34 0 00-6 9 59 59 0 00-4 10l-3 12-2 6a26 26 0 01-5 8 17 17 0 01-16 6 26 26 0 01-10-4 7 7 0 01-2-1 2 2 0 010-2 2 2 0 012 0l3 1a22 22 0 0010 3 13 13 0 009-4 22 22 0 005-6 41 41 0 003-8l3-12a59 59 0 015-13 31 31 0 017-9c6-5 14-7 22-5a12 12 0 019 7 21 21 0 011 7 57 57 0 01-2 17 132 132 0 00-2 16 37 37 0 000 13 27 27 0 002 5 13 13 0 0011 8 30 30 0 0016-3 22 22 0 0010-10c3-4 3-9 4-13v-5z'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-size: 90%;
-  color: var(--color-primary-alt);
-  font-size: 0.9rem;
-  content: "Grid FTW!";
 }
 
 .profile {
@@ -552,26 +635,30 @@ nav ul li {
   margin: 1rem auto 10vh;
   padding: 1.25rem;
   z-index: 1;
+  color: var(--color-light);
 }
-
 .profile h4 {
   margin: 0;
-  color: var(--color-secondary);
+  color: var(--color-light);
   text-align: center;
 }
-
+.profile a:hover:not(.profile span a),
+.profile a:focus:not(.profile span a) {
+  box-shadow: 0.3em 0.3em var(--color-blue);
+}
 .profile .container {
   display: grid;
   justify-items: center;
   grid-gap: 1rem;
 }
-
 .profile .container > a {
   min-height: 2em;
   border: 2px solid currentColor;
-  color: var(--color-secondary);
+  color: var(--color-blue);
 }
-
+.profile .container a {
+  color: var(--color-blue);
+}
 .profile ul {
   display: flex;
   flex-wrap: wrap;
@@ -580,27 +667,19 @@ nav ul li {
   padding: 0;
   list-style: none;
 }
-
 .profile ul li {
   display: flex;
   padding: 0.45em;
 }
-
 .profile ul li span:nth-child(1) {
   width: auto;
   margin-right: 0.25em;
   font-weight: var(--font-weight-strong);
 }
-
 .profile ul li span:nth-child(2) {
   flex-grow: 1;
   word-break: break-word;
 }
-
-.profile ul li span:nth-child(2) a {
-  color: inherit;
-}
-
 @media (min-width: 180ch) {
   .profile {
     position: fixed;
@@ -609,23 +688,22 @@ nav ul li {
     max-width: 30ch;
     margin-bottom: 0;
     border-radius: var(--border-radius);
-    background-color: var(--color-light);
+    border: solid 2px var(--color-blue);
+    background-color: var(--color-background);
     box-shadow: 0 2px 5px rgba(255, 255, 0, 0.15);
   }
-
   .profile ul {
     justify-content: unset;
   }
-
   .profile ul li {
     padding: 0;
   }
-
   .profile ul li span:nth-child(1) {
     width: 8ch;
     margin-right: 0;
   }
 }
+
 .page-footer {
   --logomark-height: 2em;
   --logomark-padding: 0;
@@ -634,24 +712,20 @@ nav ul li {
   background: linear-gradient(var(--color-background), var(--color-gray), var(--color-background));
   background-repeat: repeat-x;
   background-position: center -34px;
-  color: var(--color-text);
+  color: var(--color-light);
 }
-
 .page-footer p:first-child {
   margin-top: 3rem;
   font-weight: var(--font-weight-strong);
   letter-spacing: 0.03em;
   text-align: center;
 }
-
-.page-footer p a {
-  color: inherit;
+.page-footer a {
+  color: var(--color-link);
 }
-
 .page-footer ul {
   grid-template-columns: repeat(auto-fit, minmax(12ch, auto));
 }
-
 .page-footer .container > :last-child {
   margin-bottom: 0;
 }
@@ -667,7 +741,6 @@ nav ul li {
   font-size: 1.125rem;
   overflow: hidden;
 }
-
 .skip-link:focus {
   position: fixed;
   top: 0;
@@ -690,14 +763,12 @@ nav ul li {
   text-align: center;
   text-decoration: none;
 }
-
 [class^=link]:not(.link-codepen):hover, [class^=link]:not(.link-codepen):focus,
 .profile .container > a:hover,
 .profile .container > a:focus {
   transform: translate(-0.15em, -0.15em);
-  box-shadow: 0.3em 0.3em var(--color-secondary);
+  box-shadow: 0.3em 0.3em var(--color-link);
 }
-
 [class^=link]:not(.link-codepen):focus,
 .profile .container > a:focus {
   outline-color: transparent;
@@ -717,28 +788,14 @@ nav ul li {
   font-size: var(--font-size-h4);
 }
 
-.link-codepen::before {
-  position: absolute;
-  padding-right: 1.25em;
-  transform: translate(15%, -90%) rotate(-3deg);
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 79.6 187.1'%3E%3Cpath fill='%23fff' d='M12 131l-2 13-3 26a10 10 0 000 2 1 1 0 001 0 24 24 0 002-3 37 37 0 016-8 73 73 0 007-9l24-33 4-5a70 70 0 006-7l15-20a8 8 0 001-1 1 1 0 000-1 16 16 0 00-2-1l-8-3a69 69 0 01-13-6 7 7 0 00-1-1l-16-6-13-7a57 57 0 00-10-4 17 17 0 01-2-1 2 2 0 01-1-4 18 18 0 012-2 93 93 0 0011-13 95 95 0 018-8l10-11a32 32 0 003-4c3-5 7-9 12-13a12 12 0 011-1 1 1 0 012 0 2 2 0 010 2 27 27 0 01-3 3 104 104 0 00-10 12 115 115 0 01-11 13 102 102 0 00-11 13 78 78 0 01-5 7l-2 2a1 1 0 000 1l19 8 9 4 3 2a77 77 0 0113 5 22 22 0 003 2l17 8a8 8 0 011 1 2 2 0 010 2 22 22 0 01-1 3l-11 14a33 33 0 00-2 3 98 98 0 01-10 13l-5 7-23 31a87 87 0 01-7 9 60 60 0 00-6 8l-2 3a1 1 0 000 1l9-4 12-6 10-6 13-7a10 10 0 012 0 2 2 0 012 1 2 2 0 010 3 24 24 0 01-3 1l-8 4-20 11-24 12a19 19 0 01-2 1 2 2 0 01-3-2 10 10 0 010-2l1-7 3-24 3-21a39 39 0 011-5 2 2 0 013-1 2 2 0 011 2v4z'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 130%;
-  background-size: 14%;
-  color: #6f6ffd;
-  font-size: 0.85em;
-  content: "Jump right in";
-}
-
 .link-allstyles {
   font-size: var(--font-size-h4);
+  color: var(--color-purple);
+}
+.link-allstyles:hover, .link-allstyles:focus {
+  box-shadow: 0.3em 0.3em var(--color-purple) !important;
 }
 
-@media (max-width: 400px) {
-  .link-allstyles {
-    margin-left: 6rem;
-  }
-}
 .link-github svg {
   width: 1em;
   height: 1em;
@@ -746,4 +803,45 @@ nav ul li {
   fill: currentColor;
 }
 
-/*# sourceMappingURL=style.css.map */
+#about section:first-of-type {
+  color: var(--color-light);
+}
+#about section:first-of-type blockquote {
+  color: var(--color-light);
+}
+#about section:first-of-type h2 {
+  color: var(--color-background);
+}
+#about section:first-of-type a {
+  color: var(--color-green);
+}
+
+#about section:nth-of-type(2) {
+  color: var(--color-light);
+}
+#about section:nth-of-type(2) a {
+  color: var(--color-blue);
+}
+
+#guidelines {
+  color: var(--color-light);
+}
+#guidelines a {
+  color: var(--color-purple);
+}
+
+#contribute {
+  color: var(--color-light);
+}
+#contribute a {
+  color: var(--color-red);
+}
+
+#files a {
+  color: var(--color-green);
+}
+
+#files a:hover:not(.link-codepen),
+#files a:focus:not(.link-codepen) {
+  box-shadow: 0.3em 0.3em var(--color-green);
+}

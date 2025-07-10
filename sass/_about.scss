@@ -9,7 +9,7 @@
     p:nth-of-type(2) {
       align-self: center;
       margin-top: 2rem;
-      color: var(--color-secondary);
+      color: var(--color-blue);
       font-size: 1.5em;
       font-weight: var(--font-weight-strong);
       text-align: center;
@@ -27,8 +27,13 @@
         margin: 0.25em;
         padding: 0.7em 0.7em;
         border-radius: .2em;
-        background-color: var(--color-light);
-        color: var(--color-secondary)
+        background-color: var(--color-blue);
+        color: var(--color-background);
+        transition: transform 300ms ease-in-out;
+        &:hover,
+        &:focus {
+          transform: scale(1.05);
+        }
       }
     }
 

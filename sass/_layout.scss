@@ -1,8 +1,35 @@
 // stylelint-disable no-descending-specificity
+$star-count: 600;
+$stars: ();
+
+@for $i from 1 through $star-count {
+  $x: random(100) + vw;
+  $y: random(1200) + vh;
+  $blur: 0px;
+  $size: random(2) + px;
+  $stars: append($stars, #{$x} #{$y} #{$blur} #{$size} yellow, comma);
+}
+
 body {
-  background-color: var(--color-background);
+  background: var(--color-background);
   color: var(--color-text);
   font-family: var(--font-family);
+  display: flex;
+  flex-direction: column;
+  &::before {
+    content: '';
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    background: transparent;
+    animation: twinkle 1s infinite ease-in-out alternate;
+    box-shadow: $stars;
+  }
+}
+
+@keyframes twinkle {
+  0% { opacity: 0.4; }
+  100% { opacity: 1; }
 }
 
 main {
@@ -13,7 +40,7 @@ main {
   }
 
   h3 {
-    color: var(--color-primary);
+    color: var(--color-red);
   }
 }
 

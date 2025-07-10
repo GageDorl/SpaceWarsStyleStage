@@ -18,6 +18,12 @@ h2 {
   text-align: center;
 }
 
+p{
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 0.5em;
+  border-radius: 0.5em;
+}
+
 #main h2 {
   width:90vw;
   position:relative;
@@ -25,20 +31,115 @@ h2 {
   align-self: center;
   color: var(--color-background);
   padding: 0.25em 0.5em;
-  border-radius: 2rem;
+}
+
+@mixin saber-glow($color){
+  @keyframes saber-glow-#{""+$color}{
+    0% {
+      box-shadow: 0 0 10px white, 0 0 20px var(--color-#{$color}), 0 0 30px var(--color-#{$color});
+    }
+    50% {
+      box-shadow: 0 0 20px white, 0 0 40px var(--color-#{$color}), 0 0 60px var(--color-#{$color});
+    }
+    100% {
+      box-shadow: 0 0 10px white, 0 0 20px var(--color-#{$color}), 0 0 30px var(--color-#{$color});
+    }
+  }
+}
+
+@mixin animate-saber-glow($color) {
+  animation: saber-glow-#{$color} infinite alternate ease-in-out;
+  animation-duration: 2s;
 }
 
 
-#about>.container:nth-of-type(2n-1) h2, #guidelines>.container h2{
-  transform: translateX(10vw);
-  text-align: left;
-  background-color: var(--color-link);
+@include saber-glow(blue);
+@include saber-glow(green);
+@include saber-glow(red);
+@include saber-glow(purple);
+@include saber-glow(darkblue);
 
+#about>.container{
+  display: flex;
+
+  p{
+    z-index: 1;
+  }
+
+  &:nth-of-type(2n-1) h2{
+    position: relative;
+    transform: translateX(10vw);
+    text-align: left;
+    background-color: var(--color-green);
+    border-radius: 2em 0 0 2em;
+    box-shadow: 0 0 10px #ffffff, 0 0 20px var(--color-green), 0 0 30px var(--color-green);
+    @include animate-saber-glow(green);
+    &::before {
+      content: "";
+      position: absolute;
+      top: -200px;
+      left: 85%;
+      width: 20px;
+      height: 800px;
+      border-radius: 2rem;
+      background-color: var(--color-secondary);
+      transform: rotate(10deg);
+      z-index: -1;
+      box-shadow: 0 0 10px #ffffff, 0 0 20px var(--color-red), 0 0 30px var(--color-red);
+      @include animate-saber-glow(red);
+    }
+  }
 }
 
 #about>.container:nth-of-type(2n) h2, #contribute>.container h2{
   transform:translateX(-10vw);
   text-align: right;
+  background-color: var(--color-blue);
+  border-radius: 0 2em 2em 0;
+  box-shadow: 0 0 10px #ffffff, 0 0 20px var(--color-blue), 0 0 30px var(--color-blue);
+  @include animate-saber-glow(blue);
+}
+
+
+#guidelines>.container {
+  p{
+    z-index: 1;
+  }
+  h3{
+    z-index: 1;
+  }
+  h2 {
+    background-color: var(--color-purple);
+    transform: translateX(10vw);
+    text-align: left;
+    border-radius: 2em 0 0 2em;
+    z-index: 1;
+    box-shadow: 0 0 10px #ffffff, 0 0 20px var(--color-purple), 0 0 30px var(--color-purple);
+    @include animate-saber-glow(purple);
+    &::before {
+      content: "";
+      position: absolute;
+      top: -200px;
+      left: -5%;
+      width: 20px;
+      height: 800px;
+      border-radius: 2rem;
+      background-color: var(--color-darkblue);
+      transform: rotate(-15deg);
+      z-index: -1;
+      box-shadow: 0 0 10px #ffffff, 0 0 20px var(--color-darkblue), 0 0 30px var(--color-darkblue);
+      @include animate-saber-glow(darkblue);
+    }
+  }
+}
+
+#contribute>.container h2 {
+  transform:translateX(-10vw);
+  text-align: right;
+  background-color: var(--color-red);
+  border-radius: 0 2em 2em 0;
+  box-shadow: 0 0 10px #ffffff, 0 0 20px var(--color-red), 0 0 30px var(--color-red);
+  @include animate-saber-glow(red);
 }
 
 h3 {
