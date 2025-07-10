@@ -19,7 +19,7 @@ h2 {
 }
 
 p{
-  background-color: rgba(255, 255, 255, 0.4);
+  background-color: rgba(255, 255, 255, 0.05);
   padding: 0.5em;
   border-radius: 0.5em;
 }
@@ -34,7 +34,7 @@ p{
 }
 
 @mixin saber-glow($color){
-  @keyframes saber-glow-#{$color}{
+  @keyframes saber-glow-#{""+$color}{
     0% {
       box-shadow: 0 0 10px white, 0 0 20px var(--color-#{$color}), 0 0 30px var(--color-#{$color});
     }
@@ -48,7 +48,8 @@ p{
 }
 
 @mixin animate-saber-glow($color) {
-  animation: saber-glow-#{$color} 3s infinite alternate ease-in-out;
+  animation: saber-glow-#{$color} infinite alternate ease-in-out;
+  animation-duration: 2s;
 }
 
 

@@ -21,12 +21,12 @@
       place-content: center;
       padding: 0.5em;
       grid-gap: 0.5rem;
-      border: 1px solid var(--color-light);
+      // border: 1px solid var(--color-light);
       background-color: var(--color-purple);
       line-height: 1.1;
 
       a {
-        color: inherit;
+        color: var(--color-background);
         font-size: 1.3rem;
         font-weight: var(--font-weight-strong);
         text-decoration: none;
@@ -43,6 +43,7 @@
       }
 
       span:nth-child(2) {
+        color: var(--color-background);
         position: relative;
       }
     }
