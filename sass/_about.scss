@@ -1,4 +1,8 @@
 #about {
+  p {
+      padding: 0 1rem;
+    }
+  
   section:nth-child(2) {
     position: relative;
 
@@ -64,5 +68,13 @@
     //     transform: scale(2) translate(-25%, -25%);
     //   }
     // }
+  }
+}
+
+@media (min-width: 730px) {
+  #about {
+    p {
+      padding: 0 1rem;
+    }
   }
 }
